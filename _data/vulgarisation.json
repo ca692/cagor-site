@@ -1,0 +1,55 @@
+{
+  "section_title_fr": "Vulgarisation & Conseil Agricole",
+  "section_title_ar": "الإرشاد والاستشارة الزراعية",
+  "intro_fr": "La CAGOR contribue activement à la vulgarisation des informations scientifiques, techniques et économiques auprès des agriculteurs et éleveurs de la région de l'Oriental.",
+  "intro_ar": "تساهم كاغور بشكل فعال في نشر المعلومات العلمية والتقنية والاقتصادية لفائدة الفلاحين والمربين بمنطقة الشرق.",
+  "cards": [
+    {
+      "icon": "fas fa-book-open",
+      "title_fr": "Information Technique",
+      "title_ar": "المعلومات التقنية",
+      "description_fr": "Diffusion des informations scientifiques et techniques relatives aux pratiques culturales, à l'élevage, à l'irrigation, et aux nouvelles technologies agricoles.",
+      "description_ar": "نشر المعلومات العلمية والتقنية المتعلقة بالممارسات الزراعية وتربية الماشية والري والتقنيات الزراعية الجديدة المناسبة للمنطقة."
+    },
+    {
+      "icon": "fas fa-chalkboard-teacher",
+      "title_fr": "Conseil & Accompagnement",
+      "title_ar": "الاستشارة والمرافقة",
+      "description_fr": "Conseil personnalisé aux agriculteurs sur les bonnes pratiques, la gestion des exploitations, l'accès aux marchés, et l'optimisation des rendements.",
+      "description_ar": "استشارات شخصية للفلاحين حول الممارسات الجيدة وإدارة المزارع والوصول إلى الأسواق وتحسين إنتاجية المحاصيل."
+    },
+    {
+      "icon": "fas fa-users-cog",
+      "title_fr": "Journées de Sensibilisation",
+      "title_ar": "أيام التوعية",
+      "description_fr": "Organisation de journées d'information, démonstrations terrain, et rencontres entre agriculteurs pour partager les expériences et innovations.",
+      "description_ar": "تنظيم أيام إعلامية وعروض ميدانية ولقاءات بين الفلاحين لتبادل الخبرات والابتكارات في القطاع."
+    }
+  ],
+  "topics": [
+    {
+      "title_fr": "Techniques Culturales",
+      "title_ar": "التقنيات الزراعية",
+      "description_fr": "Méthodes modernes de culture, rotation, fertilisation et protection phytosanitaire",
+      "description_ar": "أساليب الزراعة الحديثة والتناوب والتسميد والحماية النباتية"
+    },
+    {
+      "title_fr": "Élevage & Santé Animale",
+      "title_ar": "تربية الماشية والصحة الحيوانية",
+      "description_fr": "Alimentation animale, insémination artificielle, prophylaxie et gestion des troupeaux",
+      "description_ar": "تغذية الحيوانات والتلقيح الاصطناعي والوقاية وإدارة القطعان"
+    },
+    {
+      "title_fr": "Valorisation des Produits",
+      "title_ar": "تثمين المنتجات",
+      "description_fr": "Transformation, conditionnement, labellisation et commercialisation des produits du terroir",
+      "description_ar": "التحويل والتعبئة والتوسيم وتسويق منتجات المنطقة"
+    },
+    {
+      "title_fr": "Gestion de l'Eau",
+      "title_ar": "إدارة المياه",
+      "description_fr": "Irrigation localisée, économie d'eau, techniques de captage et gestion durable des ressources hydriques",
+      "description_ar": "الري الموضعي واقتصاد المياه وتقنيات الجمع والإدارة المستدامة للموارد المائية"
+    }
+  ]
+}
