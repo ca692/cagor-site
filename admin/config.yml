@@ -31,15 +31,15 @@ collections:
         name: "contact"
         file: "_data/contact.json"
         fields:
-          - {label: "Adresse (FR)", name: "address_fr", widget: "string", default: "Boulevard Derfoufi, Oujda 60000, Maroc"}
+          - {label: "Adresse (FR)", name: "address_fr", widget: "string"}
           - {label: "Adresse (AR)", name: "address_ar", widget: "string", required: false}
-          - {label: "Téléphone 1", name: "phone1", widget: "string", default: "+212 5 36 68 80 00"}
-          - {label: "Téléphone 2", name: "phone2", widget: "string", default: "+212 5 36 68 80 01"}
-          - {label: "Email 1", name: "email1", widget: "string", default: "contact@cagor.ma"}
-          - {label: "Email 2", name: "email2", widget: "string", default: "info@cagor.ma"}
-          - {label: "Horaires (FR)", name: "hours_fr", widget: "string", default: "Lun-Jeu: 8h-16h | Vendredi: 8h-15h30"}
+          - {label: "Téléphone 1", name: "phone1", widget: "string"}
+          - {label: "Téléphone 2", name: "phone2", widget: "string"}
+          - {label: "Email 1", name: "email1", widget: "string"}
+          - {label: "Email 2", name: "email2", widget: "string"}
+          - {label: "Horaires (FR)", name: "hours_fr", widget: "string"}
           - {label: "Horaires (AR)", name: "hours_ar", widget: "string", required: false}
-          - {label: "Lien Facebook", name: "facebook", widget: "string", default: "https://www.facebook.com/profile.php?id=100063571361286"}
+          - {label: "Lien Facebook", name: "facebook", widget: "string"}
           - {label: "URL Google Maps", name: "maps_url", widget: "string"}
 
       - label: "Textes de la page d'accueil"
@@ -50,15 +50,15 @@ collections:
             name: "hero"
             widget: "object"
             fields:
-              - {label: "Titre principal (FR)", name: "title_fr", widget: "string", default: "Chambre d'Agriculture de la Région de l'Oriental"}
+              - {label: "Titre principal (FR)", name: "title_fr", widget: "string"}
               - {label: "Titre principal (AR)", name: "title_ar", widget: "string", required: false}
-              - {label: "Bouton 1 (FR)", name: "btn1_fr", widget: "string", default: "Demander une attestation"}
-              - {label: "Bouton 2 (FR)", name: "btn2_fr", widget: "string", default: "En savoir plus"}
+              - {label: "Bouton 1 (FR)", name: "btn1_fr", widget: "string"}
+              - {label: "Bouton 2 (FR)", name: "btn2_fr", widget: "string"}
           - label: "Section À propos"
             name: "about"
             widget: "object"
             fields:
-              - {label: "Titre (FR)", name: "title_fr", widget: "string", default: "Une institution au service de l'agriculture"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
               - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
               - {label: "Paragraphe 1 (FR)", name: "p1_fr", widget: "text"}
               - {label: "Paragraphe 1 (AR)", name: "p1_ar", widget: "text", required: false}
@@ -66,3 +66,158 @@ collections:
               - {label: "Paragraphe 2 (AR)", name: "p2_ar", widget: "text", required: false}
               - {label: "Paragraphe 3 (FR)", name: "p3_fr", widget: "text"}
               - {label: "Paragraphe 3 (AR)", name: "p3_ar", widget: "text", required: false}
+
+      - label: "Services"
+        name: "services"
+        file: "_data/services.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - label: "Cartes de services"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+              - {label: "Lien", name: "link", widget: "string"}
+
+      - label: "Missions"
+        name: "missions"
+        file: "_data/missions.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - label: "Liste des missions"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+
+      - label: "Plan Stratégique"
+        name: "plan"
+        file: "_data/plan.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - {label: "Introduction (FR)", name: "intro_fr", widget: "text"}
+          - {label: "Introduction (AR)", name: "intro_ar", widget: "text", required: false}
+          - label: "Axes stratégiques"
+            name: "axes"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+
+      - label: "Organisation"
+        name: "organisation"
+        file: "_data/organisation.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - {label: "Introduction (FR)", name: "intro_fr", widget: "text"}
+          - {label: "Introduction (AR)", name: "intro_ar", widget: "text", required: false}
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+          - label: "Annexes"
+            name: "annexes"
+            widget: "list"
+            fields:
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "string"}
+              - {label: "Description (AR)", name: "description_ar", widget: "string", required: false}
+
+      - label: "Vulgarisation"
+        name: "vulgarisation"
+        file: "_data/vulgarisation.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - {label: "Introduction (FR)", name: "intro_fr", widget: "text"}
+          - {label: "Introduction (AR)", name: "intro_ar", widget: "text", required: false}
+          - label: "Cartes principales"
+            name: "cards"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+          - label: "Thèmes de vulgarisation"
+            name: "topics"
+            widget: "list"
+            fields:
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+
+      - label: "Formation"
+        name: "formation"
+        file: "_data/formation.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - label: "Chaînes de production"
+            name: "chaines"
+            widget: "list"
+            field: {label: "Nom", name: "nom", widget: "string"}
+          - label: "Cartes de formation"
+            name: "cards"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Description (FR)", name: "description_fr", widget: "text"}
+              - {label: "Description (AR)", name: "description_ar", widget: "text", required: false}
+              - {label: "Texte du lien (FR)", name: "link_text_fr", widget: "string"}
+              - {label: "URL du lien", name: "link_url", widget: "string"}
+
+      - label: "Région"
+        name: "region"
+        file: "_data/region.json"
+        fields:
+          - {label: "Titre (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre (AR)", name: "section_title_ar", widget: "string", required: false}
+          - {label: "Description 1 (FR)", name: "description1_fr", widget: "text"}
+          - {label: "Description 1 (AR)", name: "description1_ar", widget: "text", required: false}
+          - {label: "Description 2 (FR)", name: "description2_fr", widget: "text"}
+          - {label: "Description 2 (AR)", name: "description2_ar", widget: "text", required: false}
+          - label: "Provinces"
+            name: "provinces"
+            widget: "list"
+            field: {label: "Nom", name: "nom", widget: "string"}
+
+      - label: "Liens Utiles"
+        name: "liens"
+        file: "_data/liens.json"
+        fields:
+          - {label: "Titre de section (FR)", name: "section_title_fr", widget: "string"}
+          - {label: "Titre de section (AR)", name: "section_title_ar", widget: "string", required: false}
+          - label: "Liens"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Icône FontAwesome", name: "icon", widget: "string"}
+              - {label: "Nom (FR)", name: "title_fr", widget: "string"}
+              - {label: "Nom (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "URL", name: "url", widget: "string"}
