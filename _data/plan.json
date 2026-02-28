@@ -1,0 +1,36 @@
+{
+  "section_title_fr": "Plan Stratégique 2024-2027",
+  "section_title_ar": "المخطط الاستراتيجي 2024-2027",
+  "intro_fr": "La CAGOR a élaboré un plan stratégique basé sur l'analyse de 845 interventions cataloguées entre 2015 et 2019, structuré autour de 4 axes prioritaires.",
+  "intro_ar": "وضعت كاغور مخططًا استراتيجيًا مبنيًا على تحليل 845 تدخلًا مُفهرسًا بين 2015 و2019، مهيكلًا حول 4 محاور ذات أولوية للتنمية الزراعية بالمنطقة.",
+  "axes": [
+    {
+      "icon": "fas fa-tint",
+      "title_fr": "Ressources Hydriques & Irrigation",
+      "title_ar": "الموارد المائية والري",
+      "description_fr": "Suivi des niveaux des barrages, gestion durable de l'eau, promotion de l'irrigation localisée et adaptation aux changements climatiques.",
+      "description_ar": "متابعة مستويات السدود والإدارة المستدامة للمياه وتعزيز الري الموضعي والتكيف مع التغيرات المناخية."
+    },
+    {
+      "icon": "fas fa-horse",
+      "title_fr": "Élevage & Sécurité Sanitaire",
+      "title_ar": "تربية الماشية والسلامة الصحية",
+      "description_fr": "Développement des filières d'élevage, protection sanitaire des troupeaux, amélioration génétique et commercialisation.",
+      "description_ar": "تطوير سلاسل تربية الماشية والحماية الصحية للقطعان والتحسين الجيني ودعم تسويق اللحوم الحمراء والحليب."
+    },
+    {
+      "icon": "fas fa-seedling",
+      "title_fr": "Production Végétale & Environnement",
+      "title_ar": "الإنتاج النباتي والبيئة",
+      "description_fr": "Soutien à la production végétale, lutte contre la désertification, protection des forêts et valorisation des produits du terroir.",
+      "description_ar": "دعم الإنتاج النباتي ومكافحة التصحر وحماية الغابات وتثمين منتجات المنطقة."
+    },
+    {
+      "icon": "fas fa-laptop-code",
+      "title_fr": "Transformation Numérique & Modernisation",
+      "title_ar": "التحول الرقمي والتحديث",
+      "description_fr": "Adoption du Cloud Computing, plateforme numérique de services, veille stratégique et dématérialisation des procédures.",
+      "description_ar": "اعتماد الحوسبة السحابية ومنصة رقمية للخدمات والرصد الاستراتيجي ورقمنة الإجراءات."
+    }
+  ]
+}
