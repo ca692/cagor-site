@@ -1,0 +1,62 @@
+{
+  "section_title_fr": "Nos Missions",
+  "section_title_ar": "مهامنا",
+  "items": [
+    {
+      "icon": "fas fa-gavel",
+      "title_fr": "Rôle Consulaire",
+      "title_ar": "الدور الاستشاري",
+      "description_fr": "Consultation obligatoire sur les projets et textes réglementaires agricoles conformément à la Loi 27-08.",
+      "description_ar": "استشارة إلزامية حول المشاريع والنصوص التشريعية والتنظيمية المتعلقة بالقطاع الفلاحي وفقًا للقانون 27-08."
+    },
+    {
+      "icon": "fas fa-shield-alt",
+      "title_fr": "Défense des Intérêts",
+      "title_ar": "الدفاع عن المصالح",
+      "description_fr": "Représenter et défendre les agriculteurs et éleveurs de la région face aux instances décisionnelles.",
+      "description_ar": "تمثيل والدفاع عن الفلاحين والعاملين في تربية الثروة بالمنطقة أمام السلطات التقررية."
+    },
+    {
+      "icon": "fas fa-chalkboard-teacher",
+      "title_fr": "Vulgarisation & Formation",
+      "title_ar": "النشر والتكوين",
+      "description_fr": "Vulgarisation des informations scientifiques, techniques et économiques, formation des agriculteurs.",
+      "description_ar": "المساهمة في نشر المعلومات العلمية والتقنية والاقتصادية وتكوين الفلاحين والمنظمات المهنية."
+    },
+    {
+      "icon": "fas fa-chart-line",
+      "title_fr": "Appui à l'Investissement",
+      "title_ar": "دعم الاستثمار",
+      "description_fr": "Appui de l'investissement et de l'emploi dans le milieu rural. Accès aux financements.",
+      "description_ar": "المساهمة في دعم الاستثمار والعمالة في الوسط الريفي. تسهيل الوصول إلى التمويلات وبرامج الدعم."
+    },
+    {
+      "icon": "fas fa-users",
+      "title_fr": "Organisation Professionnelle",
+      "title_ar": "التنظيم المهني",
+      "description_fr": "Encourager l'organisation professionnelle et simplifier les procédures administratives.",
+      "description_ar": "تشجيع تنظيم المهنيين، وتبسيط الإجراءات الإدارية وتطوير القدرات التنظيمية."
+    },
+    {
+      "icon": "fas fa-store",
+      "title_fr": "Coopération & Foires",
+      "title_ar": "التعاون والمعارض",
+      "description_fr": "Élargissement des relations commerciales et organisation de manifestations agricoles.",
+      "description_ar": "توسيع العلاقات التجارية وتنظيم الفعاليات والمعارض الزراعية لتعزيز المنتجات الإقليمية."
+    },
+    {
+      "icon": "fas fa-hand-holding-usd",
+      "title_fr": "Orientation & Subventions",
+      "title_ar": "التوجيه والإعانات",
+      "description_fr": "Orienter les agriculteurs vers les programmes de subvention et les accompagner dans leurs démarches.",
+      "description_ar": "توجيه الفلاحين نحو برامج الدعم المتاحة ومرافقتهم في إجراءاتهم الإدارية."
+    },
+    {
+      "icon": "fas fa-satellite-dish",
+      "title_fr": "Veille & Information Stratégique",
+      "title_ar": "الرصد والمعلومات الاستراتيجية",
+      "description_fr": "Suivi des barrages, veille des marchés, alertes climatiques et information stratégique.",
+      "description_ar": "متابعة مستويات السدود ورصد الأسواق الزراعية والتنبيهات المناخية ونشر المعلومات الاستراتيجية لمهنيي القطاع."
+    }
+  ]
+}
