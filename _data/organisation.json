@@ -1,0 +1,56 @@
+{
+  "section_title_fr": "Organisation & Gouvernance",
+  "section_title_ar": "التنظيم والحكامة",
+  "intro_fr": "La CAGOR dispose d'une structure organisationnelle complète composée de 4 services spécialisés et 3 annexes provinciales.",
+  "intro_ar": "تتوفر كاغور على هيكل تنظيمي متكامل يتكون من 4 مصالح متخصصة و3 ملحقات إقليمية لتقديم خدمة القرب.",
+  "services": [
+    {
+      "icon": "fas fa-calculator",
+      "title_fr": "Service Administratif & Financier (SAF)",
+      "title_ar": "المصلحة الإدارية والمالية",
+      "description_fr": "Gestion du personnel, comptabilité, budget, marchés publics et patrimoine.",
+      "description_ar": "تدبير الموظفين والمحاسبة والميزانية والصفقات العمومية وإدارة ممتلكات الغرفة."
+    },
+    {
+      "icon": "fas fa-chart-bar",
+      "title_fr": "Service Planification, Études & Communication (SPPEC)",
+      "title_ar": "مصلحة التخطيط والدراسات والتواصل",
+      "description_fr": "Planification stratégique, études sectorielles, communication institutionnelle et relations publiques.",
+      "description_ar": "التخطيط الاستراتيجي والدراسات القطاعية وتدبير التواصل المؤسساتي والعلاقات العامة."
+    },
+    {
+      "icon": "fas fa-tractor",
+      "title_fr": "Service Développement Agricole & Territorial (SDAT)",
+      "title_ar": "مصلحة التنمية الفلاحية والمجالية",
+      "description_fr": "Encadrement des agriculteurs, vulgarisation, formation, appui aux coopératives et filières agricoles.",
+      "description_ar": "تأطير الفلاحين والإرشاد والتكوين ودعم التعاونيات وتطوير السلاسل الزراعية."
+    },
+    {
+      "icon": "fas fa-clipboard-check",
+      "title_fr": "Service Audit & Contrôle de Gestion (SACG)",
+      "title_ar": "مصلحة التدقيق ومراقبة التدبير",
+      "description_fr": "Audit interne, contrôle de gestion, évaluation des performances et suivi des indicateurs.",
+      "description_ar": "التدقيق الداخلي ومراقبة التدبير وتقييم الأداء ومتابعة مؤشرات النتائج."
+    }
+  ],
+  "annexes": [
+    {
+      "title_fr": "Annexe de Nador",
+      "title_ar": "ملحقة الناظور",
+      "description_fr": "Provinces de Nador et Driouch",
+      "description_ar": "ولايتا الناظور والدريوش"
+    },
+    {
+      "title_fr": "Annexe de Berkane",
+      "title_ar": "ملحقة بركان",
+      "description_fr": "Province de Berkane",
+      "description_ar": "ولاية بركان"
+    },
+    {
+      "title_fr": "Annexe de Figuig",
+      "title_ar": "ملحقة فجيج",
+      "description_fr": "Province de Figuig",
+      "description_ar": "ولاية فجيج"
+    }
+  ]
+}
