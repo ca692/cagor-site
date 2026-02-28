@@ -1,0 +1,8 @@
+{
+  "name": "cagor-site",
+  "version": "1.0.0",
+  "description": "Site web de la Chambre d'Agriculture de la Région de l'Oriental",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
