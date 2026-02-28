@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAGOR - Chambre d'Agriculture de la Région de l'Oriental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A3D2E;
+            --primary-dark: #051F1A;
+            --secondary: #14532D;
+            --accent: #D4A017;
+            --accent-light: #E8B928;
+            --cream: #FFF9F0;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --gray: #6B7280;
+            --dark-gray: #1F2937;
+            --success: #10B981;
+            --error: #EF4444;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        body.ar {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+        }
+
+        /* ===== TOPBAR ===== */
+        .topbar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .topbar-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .topbar-info a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topbar-info a:hover {
+            color: var(--accent-light);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-section:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 200px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-gray);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #0D4B37 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(212, 160, 23, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 160, 23, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.02) 35px, rgba(255,255,255,0.02) 70px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            animation: slideInDown 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: slideInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+            background: var(--accent-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, var(--light-gray), var(--white));
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--accent);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card:hover::before {
+            top: -25px;
+            right: -25px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 28px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .service-card .btn-small {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .service-card .btn-small:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-text h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .highlight-item {
+            background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .highlight-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .highlight-item span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        /* ===== MISSIONS SECTION ===== */
+        .missions {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, var(--light-gray), var(--white));
+        }
+
+        .missions-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .mission-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--accent);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mission-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .mission-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .mission-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== ATTESTATION SECTION ===== */
+        .attestation {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .attestation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--light-gray);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(10, 61, 46, 0.05) 100%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1) 0%, rgba(10, 61, 46, 0.1) 100%);
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .file-upload p {
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .file-upload .hint {
+            font-size: 0.85rem;
+            color: var(--gray);
+            opacity: 0.8;
+        }
+
+        .staff-login-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .staff-login-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .staff-login-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .staff-login-card p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .staff-login-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .staff-login-card a:hover {
+            color: var(--accent-light);
+        }
+
+        /* ===== REGION SECTION ===== */
+        .region {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+        }
+
+        .region-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .region-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .region-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .region-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .region-text h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .region-text p {
+            margin-bottom: 20px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .provinces-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .province-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 12px 16px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+
+        .province-badge:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ===== NEWS SECTION ===== */
+        .news {
+            padding: 80px 20px;
+            background: var(--light-gray);
+        }
+
+        .news-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .news-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== LIENS UTILES SECTION ===== */
+        .liens {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .liens-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .liens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .lien-card {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+
+        .lien-card:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+            border-top-color: var(--accent);
+        }
+
+        .lien-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .lien-card:hover i {
+            color: var(--accent);
+        }
+
+        .lien-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .lien-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .lien-card a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, var(--light-gray), var(--white));
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+
+        .contact-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+            background: var(--accent-light);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .header-content {
+                height: 70px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .region-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--white);
+                padding: 20px;
+                gap: 15px;
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 1.3rem;
+            }
+
+            .services-grid,
+            .missions-grid,
+            .news-grid,
+            .liens-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .provinces-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text h1 {
+                font-size: 0.9rem;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topbar-info {
+                gap: 10px;
+                font-size: 0.75rem;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero {
+                min-height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .hero-stats {
+                gap: 15px;
+                padding: 20px 10px;
+            }
+
+            .stat-number {
+                font-size: 1.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .services {
+                padding: 60px 20px;
+            }
+
+            .service-card {
+                padding: 25px 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .tab-button {
+                padding: 12px 20px;
+                border-bottom: 2px solid var(--light-gray);
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="topbar-content">
+            <div class="topbar-info">
+                <a href="{{contact.facebook}}" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <span data-fr="Suivez-nous sur Facebook" data-ar="تابعنا على فيسبوك">Suivez-nous sur Facebook</span>
+                </a>
+                <span style="opacity:0.5;">|</span>
+                <span data-fr="Chambre d'Agriculture de la Région de l'Oriental" data-ar="غرفة الفلاحة بمنطقة الشرق">Chambre d'Agriculture de la Région de l'Oriental</span>
+            </div>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('fr')">FR</button>
+                <button class="lang-btn" onclick="switchLang('ar')">ع</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo-section">
+                <div class="logo-icon">
+                    <img src="logo-cagor.png" alt="Logo CAGOR">
+                </div>
+                <div class="logo-text">
+                    <h1 data-fr="CAGOR" data-ar="كاغور">CAGOR</h1>
+                    <p data-fr="La Chambre d'Agriculture de la Région de l'Oriental" data-ar="الغرفة الفلاحية لجهة الشرق">La Chambre d'Agriculture de la Région de l'Oriental</p>
+                </div>
+            </a>
+            <nav id="nav-menu">
+                <a href="#home" class="nav-link active" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+                <a href="#about" class="nav-link" data-fr="À propos" data-ar="حول">À propos</a>
+                <div class="dropdown">
+                    <a href="#services" class="nav-link" data-fr="Services" data-ar="الخدمات">Services <i class="fas fa-chevron-down" style="font-size:0.8rem;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#attestations" data-fr="Attestations Agricoles" data-ar="الشهادات الزراعية">Attestations Agricoles</a>
+                        <a href="#formation" data-fr="Formation" data-ar="التكوين">Formation & Coopératives</a>
+                        <a href="#plan-strategique" data-fr="Plan Stratégique" data-ar="المخطط الاستراتيجي">Plan Stratégique</a>
+                        <a href="#organisation" data-fr="Organisation" data-ar="التنظيم">Organisation</a>
+                        <a href="#vulgarisation" data-fr="Vulgarisation & Conseil" data-ar="الإرشاد والاستشارة">Vulgarisation & Conseil</a>
+                        <a href="#formation" data-fr="Base de Données" data-ar="قاعدة البيانات">Base de Données</a>
+                    </div>
+                </div>
+                <a href="#vulgarisation" class="nav-link" data-fr="Vulgarisation" data-ar="الإرشاد">Vulgarisation</a>
+                <a href="#region" class="nav-link" data-fr="Région" data-ar="المنطقة">Région</a>
+                <a href="#news" class="nav-link" data-fr="Actualités" data-ar="الأخبار">Actualités</a>
+                <a href="#contact" class="nav-link" data-fr="Contact" data-ar="اتصل">Contact</a>
+            </nav>
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-fr="Chambre d'Agriculture de la Région de l'Oriental" data-ar="{{hero.title_ar}}" data-html="true">{{hero.title_fr}}</h1>
+
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('attestation-section').scrollIntoView({behavior:'smooth'})" data-fr="{{hero.btn1_fr}}" data-ar="طلب شهادة">{{hero.btn1_fr}}</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" data-fr="{{hero.btn2_fr}}" data-ar="اعرف أكثر">{{hero.btn2_fr}}</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title" data-fr="Nos Services" data-ar="خدماتنا">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 data-fr="Attestations Agricoles" data-ar="الشهادات الزراعية">Attestations Agricoles</h3>
+                    <p data-fr="Demandez vos attestations professionnelles en ligne. Service rapide et sécurisé avec numérotation unique et vérification instantanée du statut agricole." data-ar="اطلب شهاداتك المهنية عبر الإنترنت. خدمة سريعة وآمنة مع ترقيم فريد والتحقق الفوري من الحالة الزراعية.">Demandez vos attestations professionnelles en ligne. Service rapide et sécurisé avec numérotation unique et vérification instantanée du statut agricole.</p>
+                    <a href="#attestation-section" class="btn-small" data-fr="En savoir plus" data-ar="اعرف أكثر">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 data-fr="Formation & Renforcement" data-ar="التكوين والتعزيز">Formation & Renforcement</h3>
+                    <p data-fr="Programmes de formation pour les coopératives et organisations professionnelles. Évaluation des besoins et accompagnement complet dans les chaînes de production agricole." data-ar="برامج تدريبية للتعاونيات والمنظمات المهنية. تقييم الاحتياجات والمساعدة الكاملة في سلاسل الإنتاج الزراعي.">Programmes de formation pour les coopératives et organisations professionnelles. Évaluation des besoins et accompagnement complet dans les chaînes de production agricole.</p>
+                    <a href="#formation" class="btn-small" data-fr="En savoir plus" data-ar="اعرف أكثر">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 data-fr="Base de Données Organisations" data-ar="قاعدة بيانات المنظمات">Base de Données Organisations</h3>
+                    <p data-fr="Inscription et suivi des coopératives, associations et organisations professionnelles de la région. Gestion centralisée et transparente." data-ar="تسجيل ومتابعة التعاونيات والجمعيات والمنظمات المهنية بالمنطقة. إدارة مركزية وشفافة.">Inscription et suivi des coopératives, associations et organisations professionnelles de la région. Gestion centralisée et transparente.</p>
+                    <a href="#formation" class="btn-small" data-fr="En savoir plus" data-ar="اعرف أكثر">
+                        <span>En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Continuing in next part due to length... -->
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2 class="section-title" data-fr="À Propos de CAGOR" data-ar="حول كاغور">À Propos de CAGOR</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-fr="Une institution au service de l'agriculture" data-ar="مؤسسة في خدمة الفلاحة">Une institution au service de l'agriculture</h2>
+                    <p data-fr="La Chambre d'Agriculture de la Région de l'Oriental (CAGOR) est un établissement public à caractère professionnel régi par la Loi 27-08 de 2008 relative aux Chambres d'Agriculture. Créée en 1962, elle représente les intérêts des agriculteurs, éleveurs et professionnels du secteur agricole dans les 8 provinces de la région de l'Oriental." data-ar="غرفة الفلاحة بمنطقة الشرق (كاغور) هي مؤسسة عامة ذات طابع مهني يحكمها القانون 27-08 لسنة 2008 المتعلق بغرف الفلاحة. تأسست سنة 1962، وتمثل مصالح الفلاحين والمربين والمهنيين في القطاع الزراعي بالولايات الثمانية لمنطقة الشرق.">La Chambre d'Agriculture de la Région de l'Oriental (CAGOR) est un établissement public à caractère professionnel régi par la Loi 27-08 de 2008 relative aux Chambres d'Agriculture. Créée en 1962, elle représente les intérêts des agriculteurs, éleveurs et professionnels du secteur agricole dans les 8 provinces de la région de l'Oriental.</p>
+                    <p data-fr="La CAGOR est administrée par une Assemblée Générale, un Bureau composé de 12 membres élus pour un mandat de 6 ans, un Président, un Directeur et un Secrétaire Général. Elle dispose de 4 services spécialisés et de 3 annexes régionales à Nador, Berkane et Figuig pour assurer une couverture optimale du territoire." data-ar="يدير كاغور جمعية عامة ومكتب مؤلف من 12 عضوًا منتخبًا لمدة 6 سنوات ورئيس ومدير وأمين عام. تتوفر على 4 مصالح متخصصة و3 ملحقات جهوية في الناظور وبركان وفجيج لضمان تغطية مثالية للتراب.">La CAGOR est administrée par une Assemblée Générale, un Bureau composé de 12 membres élus pour un mandat de 6 ans, un Président, un Directeur et un Secrétaire Général. Elle dispose de 4 services spécialisés et de 3 annexes régionales à Nador, Berkane et Figuig.</p>
+                    <p data-fr="Sa vision stratégique 2024-2027 est de devenir une référence en matière de représentation et de consultation en adoptant les meilleures pratiques au service des agriculteurs et éleveurs de la région." data-ar="رؤيتها الاستراتيجية 2024-2027 هي أن تصبح مرجعًا في مجال التمثيل والاستشارة من خلال اعتماد أفضل الممارسات في خدمة الفلاحين والمربين بالمنطقة.">Sa vision stratégique 2024-2027 est de devenir une référence en matière de représentation et de consultation en adoptant les meilleures pratiques au service des agriculteurs et éleveurs de la région.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <strong data-fr="Cadre Juridique" data-ar="الإطار القانوني">Cadre Juridique</strong>
+                            <span data-fr="Loi 27-08" data-ar="القانون 27-08">Loi 27-08</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong data-fr="Couverture" data-ar="التغطية">Couverture</strong>
+                            <span data-fr="8 Provinces + 3 Annexes" data-ar="٨ ولايات + ٣ ملحقات">8 Provinces + 3 Annexes</span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong data-fr="Services" data-ar="المصالح">Services</strong>
+                            <span data-fr="4 Services Spécialisés" data-ar="٤ مصالح متخصصة">4 Services Spécialisés</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Mouton_(16).jpg" alt="Agriculture" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSIONS SECTION -->
+    <section class="missions" id="missions">
+        <div class="missions-container">
+            <h2 class="section-title" data-fr="Nos Missions" data-ar="مهامنا">Nos Missions</h2>
+            <div class="missions-grid">
+                <div class="mission-card">
+                    <div class="mission-number">01</div>
+                    <h3 data-fr="Rôle Consulaire" data-ar="الدور الاستشاري">Rôle Consulaire</h3>
+                    <p data-fr="Consultation obligatoire sur les projets, textes législatifs et réglementaires relatifs au secteur agricole conformément à la Loi 27-08. Liaison entre les agriculteurs et l'administration publique." data-ar="استشارة إلزامية حول المشاريع والنصوص التشريعية والتنظيمية المتعلقة بالقطاع الفلاحي وفقًا للقانون 27-08. الربط بين الفلاحين والإدارة العامة.">Consultation obligatoire sur les projets et textes réglementaires agricoles conformément à la Loi 27-08.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">02</div>
+                    <h3 data-fr="Défense des Intérêts" data-ar="الدفاع عن المصالح">Défense des Intérêts</h3>
+                    <p data-fr="Représenter et défendre les agriculteurs et éleveurs de la région face aux instances décisionnelles et dans les négociations commerciales." data-ar="تمثيل والدفاع عن الفلاحين والعاملين في تربية الثروة بالمنطقة أمام السلطات التقررية.">Représenter et défendre les agriculteurs et éleveurs de la région face aux instances décisionnelles.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">03</div>
+                    <h3 data-fr="Vulgarisation & Formation" data-ar="النشر والتكوين">Vulgarisation & Formation</h3>
+                    <p data-fr="Contribuer à la vulgarisation des informations scientifiques, techniques, économiques et formation des agriculteurs et des organisations professionnelles." data-ar="المساهمة في نشر المعلومات العلمية والتقنية والاقتصادية وتكوين الفلاحين والمنظمات المهنية.">Vulgarisation des informations scientifiques, techniques et économiques, formation des agriculteurs.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">04</div>
+                    <h3 data-fr="Appui à l'Investissement" data-ar="دعم الاستثمار">Appui à l'Investissement</h3>
+                    <p data-fr="Contribuer à l'appui de l'investissement et de l'emploi dans le milieu rural. Faciliter l'accès aux financements et programmes de soutien." data-ar="المساهمة في دعم الاستثمار والعمالة في الوسط الريفي. تسهيل الوصول إلى التمويلات وبرامج الدعم.">Appui de l'investissement et de l'emploi dans le milieu rural. Accès aux financements.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">05</div>
+                    <h3 data-fr="Organisation Professionnelle" data-ar="التنظيم المهني">Organisation Professionnelle</h3>
+                    <p data-fr="Encourager l'organisation des professionnels, simplification des procédures administratives et développement des capacités organisationnelles." data-ar="تشجيع تنظيم المهنيين، وتبسيط الإجراءات الإدارية وتطوير القدرات التنظيمية.">Encourager l'organisation professionnelle et simplifier les procédures administratives.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">06</div>
+                    <h3 data-fr="Coopération & Foires" data-ar="التعاون والمعارض">Coopération & Foires</h3>
+                    <p data-fr="Élargissement des relations commerciales, organisation de manifestations, foires et salons agricoles pour promouvoir les produits régionaux." data-ar="توسيع العلاقات التجارية وتنظيم الفعاليات والمعارض الزراعية لتعزيز المنتجات الإقليمية.">Élargissement des relations commerciales et organisation de manifestations agricoles.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">07</div>
+                    <h3 data-fr="Orientation & Subventions" data-ar="التوجيه والإعانات">Orientation & Subventions</h3>
+                    <p data-fr="Orienter les agriculteurs vers les programmes de subvention disponibles (FDA, assurance agricole, crédit agricole) et les accompagner dans leurs démarches administratives." data-ar="توجيه الفلاحين نحو برامج الدعم المتاحة (صندوق التنمية الفلاحية، التأمين الزراعي، القرض الفلاحي) ومرافقتهم في إجراءاتهم الإدارية.">Orienter les agriculteurs vers les programmes de subvention et les accompagner dans leurs démarches.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">08</div>
+                    <h3 data-fr="Veille & Information Stratégique" data-ar="الرصد والمعلومات الاستراتيجية">Veille & Information Stratégique</h3>
+                    <p data-fr="Suivi des niveaux des barrages, veille des marchés agricoles, alertes climatiques et diffusion d'informations stratégiques pour les professionnels du secteur." data-ar="متابعة مستويات السدود ورصد الأسواق الزراعية والتنبيهات المناخية ونشر المعلومات الاستراتيجية لمهنيي القطاع.">Suivi des barrages, veille des marchés, alertes climatiques et information stratégique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLAN STRATEGIQUE 2024-2027 -->
+    <section class="services" id="plan-strategique" style="background: linear-gradient(135deg, rgba(10,61,46,0.03) 0%, rgba(212,160,23,0.03) 100%);">
+        <div class="services-container">
+            <h2 class="section-title" data-fr="Plan Stratégique 2024-2027" data-ar="المخطط الاستراتيجي 2024-2027">Plan Stratégique 2024-2027</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--gray); font-size:1.05rem;" data-fr="La CAGOR a élaboré un plan stratégique basé sur l'analyse de 845 interventions cataloguées entre 2015 et 2019, structuré autour de 4 axes prioritaires pour le développement agricole de la région." data-ar="وضعت كاغور مخططًا استراتيجيًا مبنيًا على تحليل 845 تدخلًا مُفهرسًا بين 2015 و2019، مهيكلًا حول 4 محاور ذات أولوية للتنمية الزراعية بالمنطقة.">La CAGOR a élaboré un plan stratégique basé sur l'analyse de 845 interventions cataloguées entre 2015 et 2019, structuré autour de 4 axes prioritaires.</p>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px; margin-bottom:40px;">
+                <div style="background:var(--white); padding:30px; border-radius:12px; box-shadow:var(--shadow-md); border-top:4px solid var(--primary);">
+                    <div style="width:50px; height:50px; background:linear-gradient(135deg, var(--primary), var(--secondary)); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:15px; color:white; font-weight:800; font-size:1.2rem;">1</div>
+                    <h3 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Ressources Hydriques & Irrigation" data-ar="الموارد المائية والري">Ressources Hydriques & Irrigation</h3>
+                    <p style="color:var(--gray); font-size:0.95rem;" data-fr="Suivi des niveaux des barrages, gestion durable de l'eau, promotion de l'irrigation localisée et adaptation aux changements climatiques. Organisation de journées d'études sur la problématique de l'eau." data-ar="متابعة مستويات السدود والإدارة المستدامة للمياه وتعزيز الري الموضعي والتكيف مع التغيرات المناخية. تنظيم أيام دراسية حول إشكالية الماء.">Suivi des niveaux des barrages, gestion durable de l'eau, promotion de l'irrigation localisée et adaptation aux changements climatiques.</p>
+                </div>
+                <div style="background:var(--white); padding:30px; border-radius:12px; box-shadow:var(--shadow-md); border-top:4px solid var(--accent);">
+                    <div style="width:50px; height:50px; background:linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:15px; color:white; font-weight:800; font-size:1.2rem;">2</div>
+                    <h3 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Élevage & Sécurité Sanitaire" data-ar="تربية الماشية والسلامة الصحية">Élevage & Sécurité Sanitaire</h3>
+                    <p style="color:var(--gray); font-size:0.95rem;" data-fr="Développement des filières d'élevage, protection sanitaire des troupeaux, amélioration génétique, et soutien à la commercialisation des viandes rouges et du lait." data-ar="تطوير سلاسل تربية الماشية والحماية الصحية للقطعان والتحسين الجيني ودعم تسويق اللحوم الحمراء والحليب.">Développement des filières d'élevage, protection sanitaire des troupeaux, amélioration génétique et commercialisation.</p>
+                </div>
+                <div style="background:var(--white); padding:30px; border-radius:12px; box-shadow:var(--shadow-md); border-top:4px solid var(--primary);">
+                    <div style="width:50px; height:50px; background:linear-gradient(135deg, var(--primary), var(--secondary)); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:15px; color:white; font-weight:800; font-size:1.2rem;">3</div>
+                    <h3 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Production Végétale & Environnement" data-ar="الإنتاج النباتي والبيئة">Production Végétale & Environnement</h3>
+                    <p style="color:var(--gray); font-size:0.95rem;" data-fr="Soutien à la production végétale (céréales, oléiculture, agrumes), lutte contre la désertification, protection des forêts et valorisation des produits du terroir." data-ar="دعم الإنتاج النباتي (الحبوب وزراعة الزيتون والحوامض) ومكافحة التصحر وحماية الغابات وتثمين منتجات المنطقة.">Soutien à la production végétale, lutte contre la désertification, protection des forêts et valorisation des produits du terroir.</p>
+                </div>
+                <div style="background:var(--white); padding:30px; border-radius:12px; box-shadow:var(--shadow-md); border-top:4px solid var(--accent);">
+                    <div style="width:50px; height:50px; background:linear-gradient(135deg, var(--accent), var(--accent-light)); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:15px; color:white; font-weight:800; font-size:1.2rem;">4</div>
+                    <h3 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Transformation Numérique & Modernisation" data-ar="التحول الرقمي والتحديث">Transformation Numérique & Modernisation</h3>
+                    <p style="color:var(--gray); font-size:0.95rem;" data-fr="Adoption du Cloud Computing, plateforme numérique de services, veille stratégique via Bloomberg et Google Alerts, présence sur les réseaux sociaux et dématérialisation des procédures." data-ar="اعتماد الحوسبة السحابية ومنصة رقمية للخدمات والرصد الاستراتيجي عبر بلومبرغ وجوجل وحضور في الشبكات الاجتماعية ورقمنة الإجراءات.">Adoption du Cloud Computing, plateforme numérique de services, veille stratégique et dématérialisation des procédures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANISATION & GOUVERNANCE -->
+    <section class="services" id="organisation">
+        <div class="services-container">
+            <h2 class="section-title" data-fr="Organisation & Gouvernance" data-ar="التنظيم والحكامة">Organisation & Gouvernance</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--gray); font-size:1.05rem;" data-fr="La CAGOR dispose d'une structure organisationnelle complète composée de 4 services spécialisés et 3 annexes provinciales pour un service de proximité." data-ar="تتوفر كاغور على هيكل تنظيمي متكامل يتكون من 4 مصالح متخصصة و3 ملحقات إقليمية لتقديم خدمة القرب.">La CAGOR dispose d'une structure organisationnelle complète composée de 4 services spécialisés et 3 annexes provinciales.</p>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px; margin-bottom:30px;">
+                <div style="background:linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding:25px; border-radius:12px; color:white;">
+                    <i class="fas fa-cogs" style="font-size:2rem; margin-bottom:15px; color:var(--accent);"></i>
+                    <h3 style="font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Service Administratif & Financier (SAF)" data-ar="المصلحة الإدارية والمالية">Service Administratif & Financier (SAF)</h3>
+                    <p style="opacity:0.9; font-size:0.9rem;" data-fr="Gestion du personnel, comptabilité, budget, marchés publics et gestion du patrimoine de la Chambre." data-ar="تدبير الموظفين والمحاسبة والميزانية والصفقات العمومية وإدارة ممتلكات الغرفة.">Gestion du personnel, comptabilité, budget, marchés publics et patrimoine.</p>
+                </div>
+                <div style="background:linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding:25px; border-radius:12px; color:white;">
+                    <i class="fas fa-chart-bar" style="font-size:2rem; margin-bottom:15px; color:var(--accent);"></i>
+                    <h3 style="font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Service Planification, Études & Communication (SPPEC)" data-ar="مصلحة التخطيط والدراسات والتواصل">Service Planification, Études & Communication (SPPEC)</h3>
+                    <p style="opacity:0.9; font-size:0.9rem;" data-fr="Planification stratégique, études sectorielles, gestion de la communication institutionnelle et relations publiques." data-ar="التخطيط الاستراتيجي والدراسات القطاعية وتدبير التواصل المؤسساتي والعلاقات العامة.">Planification stratégique, études sectorielles, communication institutionnelle et relations publiques.</p>
+                </div>
+                <div style="background:linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding:25px; border-radius:12px; color:white;">
+                    <i class="fas fa-seedling" style="font-size:2rem; margin-bottom:15px; color:var(--accent);"></i>
+                    <h3 style="font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Service Développement Agricole & Territorial (SDAT)" data-ar="مصلحة التنمية الفلاحية والمجالية">Service Développement Agricole & Territorial (SDAT)</h3>
+                    <p style="opacity:0.9; font-size:0.9rem;" data-fr="Encadrement des agriculteurs, vulgarisation, formation, appui aux coopératives et développement des filières agricoles." data-ar="تأطير الفلاحين والإرشاد والتكوين ودعم التعاونيات وتطوير السلاسل الزراعية.">Encadrement des agriculteurs, vulgarisation, formation, appui aux coopératives et filières agricoles.</p>
+                </div>
+                <div style="background:linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding:25px; border-radius:12px; color:white;">
+                    <i class="fas fa-clipboard-check" style="font-size:2rem; margin-bottom:15px; color:var(--accent);"></i>
+                    <h3 style="font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:10px;" data-fr="Service Audit & Contrôle de Gestion (SACG)" data-ar="مصلحة التدقيق ومراقبة التدبير">Service Audit & Contrôle de Gestion (SACG)</h3>
+                    <p style="opacity:0.9; font-size:0.9rem;" data-fr="Audit interne, contrôle de gestion, évaluation des performances et suivi des indicateurs de résultats." data-ar="التدقيق الداخلي ومراقبة التدبير وتقييم الأداء ومتابعة مؤشرات النتائج.">Audit interne, contrôle de gestion, évaluation des performances et suivi des indicateurs.</p>
+                </div>
+            </div>
+
+            <div style="background:var(--white); padding:30px; border-radius:12px; box-shadow:var(--shadow-md); display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+                <div style="text-align:center; padding:20px;">
+                    <i class="fas fa-building" style="font-size:2.5rem; color:var(--accent); margin-bottom:10px;"></i>
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif;" data-fr="Annexe de Nador" data-ar="ملحقة الناظور">Annexe de Nador</h4>
+                    <p style="color:var(--gray); font-size:0.85rem;" data-fr="Provinces de Nador et Driouch" data-ar="ولايتا الناظور والدريوش">Provinces de Nador et Driouch</p>
+                </div>
+                <div style="text-align:center; padding:20px;">
+                    <i class="fas fa-building" style="font-size:2.5rem; color:var(--accent); margin-bottom:10px;"></i>
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif;" data-fr="Annexe de Berkane" data-ar="ملحقة بركان">Annexe de Berkane</h4>
+                    <p style="color:var(--gray); font-size:0.85rem;" data-fr="Province de Berkane" data-ar="ولاية بركان">Province de Berkane</p>
+                </div>
+                <div style="text-align:center; padding:20px;">
+                    <i class="fas fa-building" style="font-size:2.5rem; color:var(--accent); margin-bottom:10px;"></i>
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif;" data-fr="Annexe de Figuig" data-ar="ملحقة فجيج">Annexe de Figuig</h4>
+                    <p style="color:var(--gray); font-size:0.85rem;" data-fr="Province de Figuig" data-ar="ولاية فجيج">Province de Figuig</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VULGARISATION & CONSEIL AGRICOLE -->
+    <section class="services" id="vulgarisation" style="background: linear-gradient(135deg, rgba(10,61,46,0.03) 0%, rgba(212,160,23,0.03) 100%);">
+        <div class="services-container">
+            <h2 class="section-title" data-fr="Vulgarisation & Conseil Agricole" data-ar="الإرشاد والاستشارة الزراعية">Vulgarisation & Conseil Agricole</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--gray); font-size:1.05rem;" data-fr="La CAGOR contribue activement à la vulgarisation des informations scientifiques, techniques et économiques auprès des agriculteurs et éleveurs de la région de l'Oriental." data-ar="تساهم كاغور بشكل فعال في نشر المعلومات العلمية والتقنية والاقتصادية لفائدة الفلاحين والمربين بمنطقة الشرق.">La CAGOR contribue activement à la vulgarisation des informations scientifiques, techniques et économiques auprès des agriculteurs et éleveurs de la région de l'Oriental.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 data-fr="Information Technique" data-ar="المعلومات التقنية">Information Technique</h3>
+                    <p data-fr="Diffusion des informations scientifiques et techniques relatives aux pratiques culturales, à l'élevage, à l'irrigation, et aux nouvelles technologies agricoles adaptées à la région." data-ar="نشر المعلومات العلمية والتقنية المتعلقة بالممارسات الزراعية وتربية الماشية والري والتقنيات الزراعية الجديدة المناسبة للمنطقة.">Diffusion des informations scientifiques et techniques relatives aux pratiques culturales, à l'élevage, à l'irrigation, et aux nouvelles technologies agricoles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 data-fr="Conseil & Accompagnement" data-ar="الاستشارة والمرافقة">Conseil & Accompagnement</h3>
+                    <p data-fr="Conseil personnalisé aux agriculteurs sur les bonnes pratiques, la gestion des exploitations, l'accès aux marchés, et l'optimisation des rendements de production." data-ar="استشارات شخصية للفلاحين حول الممارسات الجيدة وإدارة المزارع والوصول إلى الأسواق وتحسين إنتاجية المحاصيل.">Conseil personnalisé aux agriculteurs sur les bonnes pratiques, la gestion des exploitations, l'accès aux marchés, et l'optimisation des rendements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 data-fr="Journées de Sensibilisation" data-ar="أيام التوعية">Journées de Sensibilisation</h3>
+                    <p data-fr="Organisation de journées d'information, de démonstrations sur le terrain, et de rencontres entre agriculteurs pour partager les expériences et les innovations du secteur." data-ar="تنظيم أيام إعلامية وعروض ميدانية ولقاءات بين الفلاحين لتبادل الخبرات والابتكارات في القطاع.">Organisation de journées d'information, démonstrations terrain, et rencontres entre agriculteurs pour partager les expériences et innovations.</p>
+                </div>
+            </div>
+            <div style="margin-top:40px; background:var(--white); padding:30px; border-radius:12px; box-shadow:var(--shadow-md); display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:25px;">
+                <div style="padding:20px; border-left:4px solid var(--accent); background:linear-gradient(135deg, rgba(10,61,46,0.02) 0%, rgba(212,160,23,0.02) 100%); border-radius:0 8px 8px 0;">
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:8px;" data-fr="Techniques Culturales" data-ar="التقنيات الزراعية">Techniques Culturales</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;" data-fr="Méthodes modernes de culture, rotation, fertilisation et protection phytosanitaire" data-ar="أساليب الزراعة الحديثة والتناوب والتسميد والحماية النباتية">Méthodes modernes de culture, rotation, fertilisation et protection phytosanitaire</p>
+                </div>
+                <div style="padding:20px; border-left:4px solid var(--accent); background:linear-gradient(135deg, rgba(10,61,46,0.02) 0%, rgba(212,160,23,0.02) 100%); border-radius:0 8px 8px 0;">
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:8px;" data-fr="Élevage & Santé Animale" data-ar="تربية الماشية والصحة الحيوانية">Élevage & Santé Animale</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;" data-fr="Alimentation animale, insémination artificielle, prophylaxie et gestion des troupeaux" data-ar="تغذية الحيوانات والتلقيح الاصطناعي والوقاية وإدارة القطعان">Alimentation animale, insémination artificielle, prophylaxie et gestion des troupeaux</p>
+                </div>
+                <div style="padding:20px; border-left:4px solid var(--accent); background:linear-gradient(135deg, rgba(10,61,46,0.02) 0%, rgba(212,160,23,0.02) 100%); border-radius:0 8px 8px 0;">
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:8px;" data-fr="Valorisation des Produits" data-ar="تثمين المنتجات">Valorisation des Produits</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;" data-fr="Transformation, conditionnement, labellisation et commercialisation des produits du terroir" data-ar="التحويل والتعبئة والتوسيم وتسويق منتجات المنطقة">Transformation, conditionnement, labellisation et commercialisation des produits du terroir</p>
+                </div>
+                <div style="padding:20px; border-left:4px solid var(--accent); background:linear-gradient(135deg, rgba(10,61,46,0.02) 0%, rgba(212,160,23,0.02) 100%); border-radius:0 8px 8px 0;">
+                    <h4 style="color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; margin-bottom:8px;" data-fr="Gestion de l'Eau" data-ar="إدارة المياه">Gestion de l'Eau</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;" data-fr="Irrigation localisée, économie d'eau, techniques de captage et gestion durable des ressources hydriques" data-ar="الري الموضعي واقتصاد المياه وتقنيات الجمع والإدارة المستدامة للموارد المائية">Irrigation localisée, économie d'eau, techniques de captage et gestion durable des ressources hydriques</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATTESTATION SECTION -->
+    <section class="attestation" id="attestation-section">
+        <div class="attestation-container">
+            <h2 class="section-title" id="attestations" data-fr="Service des Attestations" data-ar="خدمة الشهادات">Service des Attestations</h2>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab(event, 'form-tab')" data-fr="Formulaire de Demande" data-ar="نموذج الطلب">Formulaire de Demande</button>
+                <button class="tab-button" onclick="switchTab(event, 'login-tab')" data-fr="Espace Personnel" data-ar="الفضاء الشخصي">Espace Personnel CAGOR</button>
+            </div>
+
+            <div id="form-tab" class="tab-content active">
+                <form id="attestation-form">
+                    <div style="background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                        <h3 style="color: var(--primary); margin-bottom: 10px; font-family: 'Plus Jakarta Sans', sans-serif;" data-fr="Types de certificats disponibles" data-ar="أنواع الشهادات المتاحة">Types de certificats disponibles</h3>
+                        <p style="color: var(--gray);" data-fr="Nous délivrons des attestations professionnelles agricoles pour : Visa d'entrée, Contrats de travail, Demandes de crédit bancaire, Assurances agricoles, Demandes auprès de l'administration publique" data-ar="نصدر شهادات مهنية زراعية لـ: تأشيرات الدخول، عقود العمل، طلبات القروض البنكية، التأمينات الزراعية، الطلبات من الإدارة العامة">Nous délivrons des attestations professionnelles agricoles pour : Visa, Contrats, Crédits, Assurances, Administration publique</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom" data-fr="Nom et Prénom *" data-ar="الاسم الكامل *">Nom et Prénom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cin" data-fr="CIN ou Passeport *" data-ar="البطاقة الوطنية أو جواز السفر *">CIN ou Passeport *</label>
+                            <input type="text" id="cin" name="cin" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone" data-fr="Téléphone *" data-ar="الهاتف *">Téléphone *</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-fr="Email *" data-ar="البريد الإلكتروني *">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adresse" data-fr="Adresse *" data-ar="العنوان *">Adresse *</label>
+                        <input type="text" id="adresse" name="adresse" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="province" data-fr="Province *" data-ar="الولاية *">Province *</label>
+                            <select id="province" name="province" required>
+                                <option value="" data-fr="-- Sélectionner une province --" data-ar="-- اختر ولاية --">-- Sélectionner une province --</option>
+                                <option value="Oujda-Angad">Oujda-Angad</option>
+                                <option value="Nador">Nador</option>
+                                <option value="Berkane">Berkane</option>
+                                <option value="Taourirt">Taourirt</option>
+                                <option value="Jerada">Jerada</option>
+                                <option value="Figuig">Figuig</option>
+                                <option value="Driouch">Driouch</option>
+                                <option value="Guercif">Guercif</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="profession" data-fr="Profession *" data-ar="المهنة *">Profession *</label>
+                            <select id="profession" name="profession" required>
+                                <option value="">-- Sélectionner une profession --</option>
+                                <option value="Agriculteur">Agriculteur</option>
+                                <option value="Eleveur">Eleveur</option>
+                                <option value="Apiculteur">Apiculteur</option>
+                                <option value="Ouvrier agricole">Ouvrier agricole</option>
+                                <option value="Agricultrice">Agricultrice</option>
+                                <option value="Éleveuse">Éleveuse</option>
+                                <option value="Apicultrice">Apicultrice</option>
+                                <option value="Ouvrière agricole">Ouvrière agricole</option>
+                                <option value="Aviculteur">Aviculteur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination" data-fr="Destination de l'attestation *" data-ar="وجهة الشهادة *">Destination de l'attestation *</label>
+                        <select id="destination" name="destination" onchange="toggleAutreField()" required>
+                            <option value="">-- Sélectionner une destination --</option>
+                            <option value="Demande de visa">Demande de visa</option>
+                            <option value="Contrat de travail">Contrat de travail</option>
+                            <option value="Dossier de crédit bancaire">Dossier de crédit bancaire</option>
+                            <option value="Contrat d'assurance">Contrat d'assurance</option>
+                            <option value="Dossier ADA">Dossier destiné à l'ADA</option>
+                            <option value="Délégation de transport">Délégation de transport</option>
+                            <option value="Permis de chasse">Demande de permis de chasse</option>
+                            <option value="Demande de subvention">Demande de subvention</option>
+                            <option value="CIN">CIN</option>
+                            <option value="Demande de passeport">Demande de passeport</option>
+                            <option value="Douane">Douane</option>
+                            <option value="CNSS">CNSS</option>
+                            <option value="COSUMAR">COSUMAR</option>
+                            <option value="Conservation foncière">Conservation foncière</option>
+                            <option value="Usage administratif">Usage administratif</option>
+                            <option value="Bourse d'étude">Demande de bourse d'étude</option>
+                            <option value="Vignette">Vignette</option>
+                            <option value="Impôts">Impôts</option>
+                            <option value="Délégation des domaines">Délégation des domaines</option>
+                            <option value="Liste électorale">Inscription sur la liste électorale</option>
+                            <option value="Produits phytosanitaires">Achat de produits phytosanitaires</option>
+                            <option value="ONEE">ONEE</option>
+                            <option value="SRM Oriental">SRM de l'Oriental</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="autre-destination" style="display: none;">
+                        <label for="autreDestination" data-fr="Préciser la destination *" data-ar="حدد الوجهة *">Préciser la destination *</label>
+                        <input type="text" id="autreDestination" name="autreDestination">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pieceJustificative" data-fr="Pièce justificative requise" data-ar="الوثيقة المطلوبة">Pièce justificative requise</label>
+                        <input type="text" id="pieceJustificative" name="pieceJustificative" placeholder="Lettre de demande, accord de coopérative, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file-input" data-fr="Joindre document (PDF, JPG, PNG - Max 10MB)" data-ar="إرفاق وثيقة (PDF، JPG، PNG - حد أقصى 10 ميجابايت)">Joindre document (PDF, JPG, PNG - Max 10MB)</label>
+                        <div class="file-upload" onclick="document.getElementById('file-input').click()">
+                            <div class="file-upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p data-fr="Cliquez pour sélectionner ou glissez-déposez votre fichier" data-ar="انقر للتحديد أو اسحب وأفلت ملفك">Cliquez pour sélectionner ou glissez-déposez votre fichier</p>
+                            <p class="hint" data-fr="Format supporté : PDF, JPG, PNG" data-ar="الصيغ المدعومة: PDF، JPG، PNG">Format supporté : PDF, JPG, PNG</p>
+                            <input type="file" id="file-input" name="file" accept=".pdf,.jpg,.jpeg,.png">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observations" data-fr="Observations (optionnel)" data-ar="ملاحظات (اختياري)">Observations (optionnel)</label>
+                        <textarea id="observations" name="observations" placeholder="Informations supplémentaires..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;" data-fr="Soumettre la demande" data-ar="تقديم الطلب">Soumettre la demande</button>
+                </form>
+            </div>
+
+            <div id="login-tab" class="tab-content">
+                <div class="staff-login-card">
+                    <i class="fas fa-lock"></i>
+                    <h3 data-fr="Espace Personnel CAGOR" data-ar="الفضاء الشخصي لكاغور">Espace Personnel CAGOR</h3>
+                    <p data-fr="Accédez à votre espace personnel pour suivre vos demandes d'attestation en temps réel." data-ar="الوصول إلى مساحتك الشخصية لتتبع طلبات شهاداتك في الوقت الفعلي.">Accédez à votre espace personnel pour suivre vos demandes d'attestation en temps réel.</p>
+                    <a href="" id="backoffice-link" data-fr="Accéder à l'espace personnel" data-ar="الوصول إلى الفضاء الشخصي">Accéder à l'espace personnel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMATION & COOPERATIVES SECTION -->
+    <section class="services" id="formation">
+        <div class="services-container">
+            <h2 class="section-title" data-fr="Formation & Développement des Coopératives" data-ar="التكوين وتطوير التعاونيات">Formation & Développement des Coopératives</h2>
+
+            <div style="background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow-md); margin-bottom: 40px;">
+                <h3 style="color: var(--primary); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; margin-bottom: 20px;" data-fr="Chaînes de Production Couvertes" data-ar="سلاسل الإنتاج المغطاة">Chaînes de Production Couvertes</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Oléiculture</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Agrumiculture</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Maraîchage</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Caroubier</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Apiculture</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Plantes Aromatiques</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Lait et Dérivés</strong></div>
+                    <div style="padding: 15px; background: linear-gradient(135deg, rgba(10, 61, 46, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%); border-radius: 8px; border-left: 4px solid var(--accent);"><strong style="color: var(--primary);">Viandes Rouges</strong></div>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 data-fr="Évaluation des Besoins" data-ar="تقييم الاحتياجات">Évaluation des Besoins</h3>
+                    <p data-fr="Nous réalisons un diagnostic complet des besoins en formation de vos coopératives et organisations. Un questionnaire détaillé permet d'identifier vos priorités et d'adapter nos programmes." data-ar="نقوم بتشخيص شامل لاحتياجات التكوين في التعاونيات والمنظمات. يسمح الاستبيان المفصل بتحديد أولوياتك وتكييف برامجنا.">Diagnostic complet des besoins de formation et identification des priorités.</p>
+                    <a href="https://forms.google.com" class="btn-small" target="_blank" data-fr="Répondre au questionnaire" data-ar="الإجابة على الاستبيان">
+                        <span>Répondre au questionnaire</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 data-fr="Accompagnement Certifié" data-ar="المرافقة المعتمدة">Accompagnement Certifié</h3>
+                    <p data-fr="Nous offrons un accompagnement complet dans les certificats sanitaires, la qualité, la gestion administrative/financière et la commercialisation de vos produits." data-ar="نوفر مساعدة شاملة في الشهادات الصحية والجودة والإدارة المالية والتسويق.">Accompagnement en certificats sanitaires, qualité, gestion et commercialisation.</p>
+                    <a href="#contact" class="btn-small" data-fr="Contacter nous" data-ar="اتصل بنا">
+                        <span>Nous contacter</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 data-fr="Fournitures & Emballages" data-ar="الإمدادات والتعبئة">Fournitures & Emballages</h3>
+                    <p data-fr="Accès à des fournisseurs de qualité pour les bouteilles de miel, l'huile d'olive et autres matériaux d'emballage. Conditions préférentielles pour les membres." data-ar="الوصول إلى موردي جودة لزجاجات العسل وزيت الزيتون ومواد التعبئة الأخرى.">Accès à des fournisseurs de qualité pour les bouteilles, huile et emballages.</p>
+                    <a href="#contact" class="btn-small" data-fr="Demander informations" data-ar="طلب معلومات">
+                        <span>Demander informations</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGION SECTION -->
+    <section class="region" id="region">
+        <div class="region-container">
+            <div class="region-content">
+                <div class="region-image">
+                    <img src="Site/Cartes/Cartes/Region/region.png" alt="Région de l'Oriental" onerror="this.style.display='none'">
+                </div>
+                <div class="region-text">
+                    <h2 data-fr="Région de l'Oriental" data-ar="منطقة الشرق">Région de l'Oriental</h2>
+                    <p data-fr="La région de l'Oriental couvre une superficie d'environ 81 000 km² et constitue l'un des grands bassins agricoles du Maroc. Avec ses 8 provinces stratégiquement positionnées, elle se distingue par une diversité de terroirs allant des plaines irriguées de la Moulouya aux zones pastorales des hauts plateaux." data-ar="تغطي منطقة الشرق مساحة تبلغ حوالي 81000 كم² وتشكل واحدة من أكبر الأحواض الزراعية بالمغرب. بولاياتها الثمانية، تتميز بتنوع المناطق الزراعية من سهول الملوية المسقية إلى المناطق الرعوية في الهضاب العليا.">La région de l'Oriental couvre une superficie d'environ 81 000 km². Elle se distingue par une diversité de terroirs allant des plaines irriguées de la Moulouya aux zones pastorales des hauts plateaux.</p>
+                    <p data-fr="Les filières principales incluent l'oléiculture, l'agrumiculture, le maraîchage, les céréales, l'élevage ovin et bovin, l'apiculture et les plantes aromatiques et médicinales. La CAGOR accompagne les agriculteurs dans la valorisation de ces productions à travers des programmes de formation et d'appui technique." data-ar="تشمل السلاسل الرئيسية زراعة الزيتون والحوامض والخضروات والحبوب وتربية الأغنام والأبقار والنحالة والنباتات العطرية والطبية. ترافق كاغور الفلاحين في تثمين هذه المنتجات عبر برامج التكوين والدعم التقني.">Les filières principales: oléiculture, agrumiculture, maraîchage, céréales, élevage, apiculture et plantes aromatiques. La CAGOR accompagne les agriculteurs dans la valorisation de ces productions.</p>
+                    <h3 style="color: var(--accent); margin-top: 30px; margin-bottom: 15px; font-family: 'Plus Jakarta Sans', sans-serif;" data-fr="Les 8 Provinces" data-ar="الولايات الثمانية">Les 8 Provinces</h3>
+                    <div class="provinces-list">
+                        <div class="province-badge">Oujda-Angad</div>
+                        <div class="province-badge">Nador</div>
+                        <div class="province-badge">Berkane</div>
+                        <div class="province-badge">Taourirt</div>
+                        <div class="province-badge">Jerada</div>
+                        <div class="province-badge">Figuig</div>
+                        <div class="province-badge">Driouch</div>
+                        <div class="province-badge">Guercif</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section class="news" id="news">
+        <div class="news-container">
+            <h2 class="section-title" data-fr="Actualités" data-ar="الأخبار">Actualités</h2>
+            <div class="news-grid">{{NEWS_CARDS}}
+            </div>
+        </div>
+    </section>
+
+    <!-- LIENS UTILES SECTION -->
+    <section class="liens" id="links">
+        <div class="liens-container">
+            <h2 class="section-title" data-fr="Liens Utiles" data-ar="الروابط المفيدة">Liens Utiles</h2>
+            <div class="liens-grid">
+                <div class="lien-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3 data-fr="Ministère Agriculture" data-ar="وزارة الفلاحة">Ministère de l'Agriculture</h3>
+                    <a href="https://www.agriculture.gov.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-building"></i>
+                    <h3 data-fr="ONCA" data-ar="الأوّنكا">ONCA</h3>
+                    <a href="https://www.onca.gov.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3 data-fr="ONSSA" data-ar="الأوّنسا">ONSSA</h3>
+                    <a href="https://www.onssa.gov.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 data-fr="ADA" data-ar="الدا">ADA</h3>
+                    <a href="https://www.ada.gov.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-flask"></i>
+                    <h3 data-fr="INRA" data-ar="الإنرا">INRA</h3>
+                    <a href="https://www.inra.org.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-users"></i>
+                    <h3 data-fr="ANOC" data-ar="الأنوك">ANOC</h3>
+                    <a href="https://www.anoc.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3 data-fr="ODCO" data-ar="الأودكو">ODCO</h3>
+                    <a href="https://www.odco.gov.ma" target="_blank">Visiter</a>
+                </div>
+                <div class="lien-card">
+                    <i class="fas fa-cow"></i>
+                    <h3 data-fr="ONICL" data-ar="الأونيكل">ONICL</h3>
+                    <a href="https://www.onicl.org.ma" target="_blank">Visiter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title" data-fr="Nous Contacter" data-ar="اتصل بنا">Nous Contacter</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 data-fr="Adresse" data-ar="العنوان">Adresse</h3>
+                    <p data-fr="Boulevard Derfoufi<br>Oujda 60000<br>Maroc" data-ar="شارع درفوفي<br>وجدة 60000<br>المغرب" data-html="true">{{contact.address_fr}}</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 data-fr="Téléphone" data-ar="الهاتف">Téléphone</h3>
+                    <p>
+                        <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a><br>
+                        <a href="tel:{{contact.phone2}}">{{contact.phone2}}</a>
+                    </p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-fr="Email" data-ar="البريد الإلكتروني">Email</h3>
+                    <p>
+                        <a href="mailto:{{contact.email1}}">{{contact.email1}}</a><br>
+                        <a href="mailto:{{contact.email2}}">{{contact.email2}}</a>
+                    </p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 data-fr="Horaires" data-ar="الساعات">Horaires</h3>
+                    <p data-fr="Lun-Jeu: 8h-16h<br>Vendredi: 8h-15h30<br>Samedi-Dimanche: Fermé" data-ar="الإثنين-الخميس: 8-16<br>الجمعة: 8-15:30<br>السبت-الأحد: مغلق" data-html="true">{{contact.hours_fr}}</p>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="{{contact.maps_url}}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 data-fr="À Propos" data-ar="حول">À Propos</h4>
+                <ul>
+                    <li><a href="#about" data-fr="Qui sommes-nous" data-ar="من نحن">Qui sommes-nous</a></li>
+                    <li><a href="#missions" data-fr="Nos missions" data-ar="مهامنا">Nos missions</a></li>
+                    <li><a href="#region" data-fr="La région" data-ar="المنطقة">La région</a></li>
+                    <li><a href="#contact" data-fr="Nous contacter" data-ar="اتصل بنا">Nous contacter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-fr="Services" data-ar="الخدمات">Services</h4>
+                <ul>
+                    <li><a href="#attestations" data-fr="Attestations" data-ar="الشهادات">Attestations</a></li>
+                    <li><a href="#vulgarisation" data-fr="Vulgarisation & Conseil" data-ar="الإرشاد والاستشارة">Vulgarisation & Conseil</a></li>
+                    <li><a href="#formation" data-fr="Formation & Coopératives" data-ar="التكوين والتعاونيات">Formation & Coopératives</a></li>
+                    <li><a href="#news" data-fr="Actualités" data-ar="الأخبار">Actualités</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-fr="Partenaires" data-ar="الشركاء">Partenaires</h4>
+                <ul>
+                    <li><a href="https://www.agriculture.gov.ma" target="_blank" data-fr="Ministère Agriculture" data-ar="وزارة الفلاحة">Ministère de l'Agriculture</a></li>
+                    <li><a href="https://www.onca.gov.ma" target="_blank" data-fr="ONCA" data-ar="الأوّنكا">ONCA</a></li>
+                    <li><a href="https://www.onssa.gov.ma" target="_blank" data-fr="ONSSA" data-ar="الأوّنسا">ONSSA</a></li>
+                    <li><a href="https://www.inra.org.ma" target="_blank" data-fr="INRA" data-ar="الإنرا">INRA</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-fr="Suivez-nous" data-ar="تابعنا">Suivez-nous</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/profile.php?id=100063571361286" target="_blank"><i class="fab fa-facebook-f" style="margin-right:8px;"></i> <span data-fr="Facebook CAGOR" data-ar="فيسبوك كاغور">Facebook CAGOR</span></a></li>
+                    <li><a href="#" data-fr="Politique de confidentialité" data-ar="سياسة الخصوصية">Politique de confidentialité</a></li>
+                    <li><a href="#" data-fr="Mentions légales" data-ar="بيانات قانونية">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-fr="© 2026 CAGOR - Chambre d'Agriculture de la Région de l'Oriental. Tous droits réservés." data-ar="© 2024 كاغور - غرفة الفلاحة بمنطقة الشرق. جميع الحقوق محفوظة.">© 2026 CAGOR - Chambre d'Agriculture de la Région de l'Oriental. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Configuration
+        const APPS_SCRIPT_URL = '';
+        const CMS_SHEETS_URL = '';
+        const STAFF_BACKOFFICE_URL = '';
+
+        // Current Language
+        let currentLang = 'fr';
+
+        // Switch Language
+        function switchLang(lang) {
+            currentLang = lang;
+            document.body.classList.toggle('ar', lang === 'ar');
+
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update all elements with data attributes
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-fr][data-ar]').forEach(element => {
+                var text = currentLang === 'fr' ? element.getAttribute('data-fr') : element.getAttribute('data-ar');
+                // Use innerHTML for elements that contain HTML tags like <br>
+                if (element.hasAttribute('data-html') || text.indexOf('<br') > -1) {
+                    element.innerHTML = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+
+            // Update placeholder and value attributes
+            document.querySelectorAll('input[data-fr-placeholder]').forEach(el => {
+                el.placeholder = currentLang === 'fr'
+                    ? el.getAttribute('data-fr-placeholder')
+                    : el.getAttribute('data-ar-placeholder');
+            });
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Switch Tabs
+        function switchTab(event, tabId) {
+            event.preventDefault();
+
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle Autre Destination Field
+        function toggleAutreField() {
+            const destination = document.getElementById('destination');
+            const autreField = document.getElementById('autre-destination');
+
+            if (destination.value === 'Autre') {
+                autreField.style.display = 'block';
+                document.getElementById('autreDestination').required = true;
+            } else {
+                autreField.style.display = 'none';
+                document.getElementById('autreDestination').required = false;
+            }
+        }
+
+        // File Upload Setup
+        function setupFileUpload() {
+            const fileUpload = document.querySelector('.file-upload');
+            const fileInput = document.getElementById('file-input');
+
+            fileUpload.addEventListener('click', () => fileInput.click());
+
+            fileUpload.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUpload.style.background = 'linear-gradient(135deg, rgba(212, 160, 23, 0.15) 0%, rgba(10, 61, 46, 0.15) 100%)';
+            });
+
+            fileUpload.addEventListener('dragleave', () => {
+                fileUpload.style.background = 'linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(10, 61, 46, 0.05) 100%)';
+            });
+
+            fileUpload.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUpload.style.background = 'linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(10, 61, 46, 0.05) 100%)';
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                }
+            });
+        }
+
+        // Convert File to Base64
+        function fichierEnBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Form Submission
+        document.addEventListener('DOMContentLoaded', async function() {
+            setupFileUpload();
+            updateLanguage();
+
+            // Set backoffice link
+            const backofficeLink = document.getElementById('backoffice-link');
+            if (STAFF_BACKOFFICE_URL) {
+                backofficeLink.href = STAFF_BACKOFFICE_URL;
+            } else {
+                backofficeLink.onclick = (e) => {
+                    e.preventDefault();
+                    alert(currentLang === 'fr'
+                        ? 'Service pas encore configuré'
+                        : 'الخدمة لم يتم تكوينها بعد');
+                };
+            }
+
+            // Attestation Form Submit
+            const form = document.getElementById('attestation-form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (!APPS_SCRIPT_URL) {
+                    alert(currentLang === 'fr'
+                        ? 'Service pas encore configuré'
+                        : 'الخدمة لم يتم تكوينها بعد');
+                    return;
+                }
+
+                try {
+                    const formData = new FormData(form);
+                    const fileInput = document.getElementById('file-input');
+
+                    let fileBase64 = '';
+                    if (fileInput.files.length > 0) {
+                        const file = fileInput.files[0];
+                        if (file.size > 10 * 1024 * 1024) {
+                            alert(currentLang === 'fr'
+                                ? 'Le fichier dépasse 10 MB'
+                                : 'الملف يتجاوز 10 ميجابايت');
+                            return;
+                        }
+                        fileBase64 = await fichierEnBase64(file);
+                    }
+
+                    const data = {
+                        nom: formData.get('nom'),
+                        cin: formData.get('cin'),
+                        telephone: formData.get('telephone'),
+                        email: formData.get('email'),
+                        adresse: formData.get('adresse'),
+                        province: formData.get('province'),
+                        profession: formData.get('profession'),
+                        membreCagor: formData.get('membreCagor'),
+                        destination: formData.get('destination'),
+                        autreDestination: formData.get('autreDestination'),
+                        pieceJustificative: formData.get('pieceJustificative'),
+                        observations: formData.get('observations'),
+                        file: fileBase64,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    const response = await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'text/plain'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    alert(currentLang === 'fr'
+                        ? 'Demande soumise avec succès. Vérifiez votre email pour le suivi.'
+                        : 'تم تقديم الطلب بنجاح. تحقق من بريدك الإلكتروني للمتابعة.');
+
+                    form.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert(currentLang === 'fr'
+                        ? 'Erreur lors de la soumission'
+                        : 'خطأ أثناء التقديم');
+                }
+            });
+
+            // Setup scroll animations
+            setupScrollAnimations();
+
+            // Active navigation on scroll
+            updateActiveNav();
+            window.addEventListener('scroll', updateActiveNav);
+        });
+
+        // Setup Scroll Animations
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.service-card, .mission-card, .news-card, .lien-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Update Active Navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

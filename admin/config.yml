@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: ca692/cagor-site
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: 'fr'
+
+collections:
+  - name: "news"
+    label: "Actualités"
+    folder: "_news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Titre (FR)", name: "title_fr", widget: "string"}
+      - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+      - {label: "Date", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Icône FontAwesome", name: "icon", widget: "select", options: ["fas fa-star", "fas fa-handshake", "fas fa-seedling", "fas fa-trophy", "fas fa-bullhorn", "fas fa-calendar", "fas fa-users", "fas fa-leaf", "fas fa-graduation-cap", "fas fa-chart-line"], default: "fas fa-star"}
+      - {label: "Résumé (FR)", name: "summary_fr", widget: "text"}
+      - {label: "Résumé (AR)", name: "summary_ar", widget: "text", required: false}
+
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - label: "Informations de contact"
+        name: "contact"
+        file: "_data/contact.json"
+        fields:
+          - {label: "Adresse (FR)", name: "address_fr", widget: "string", default: "Boulevard Derfoufi, Oujda 60000, Maroc"}
+          - {label: "Adresse (AR)", name: "address_ar", widget: "string", required: false}
+          - {label: "Téléphone 1", name: "phone1", widget: "string", default: "+212 5 36 68 80 00"}
+          - {label: "Téléphone 2", name: "phone2", widget: "string", default: "+212 5 36 68 80 01"}
+          - {label: "Email 1", name: "email1", widget: "string", default: "contact@cagor.ma"}
+          - {label: "Email 2", name: "email2", widget: "string", default: "info@cagor.ma"}
+          - {label: "Horaires (FR)", name: "hours_fr", widget: "string", default: "Lun-Jeu: 8h-16h | Vendredi: 8h-15h30"}
+          - {label: "Horaires (AR)", name: "hours_ar", widget: "string", required: false}
+          - {label: "Lien Facebook", name: "facebook", widget: "string", default: "https://www.facebook.com/profile.php?id=100063571361286"}
+          - {label: "URL Google Maps", name: "maps_url", widget: "string"}
+
+      - label: "Textes de la page d'accueil"
+        name: "homepage"
+        file: "_data/homepage.json"
+        fields:
+          - label: "Section Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Titre principal (FR)", name: "title_fr", widget: "string", default: "Chambre d'Agriculture de la Région de l'Oriental"}
+              - {label: "Titre principal (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Bouton 1 (FR)", name: "btn1_fr", widget: "string", default: "Demander une attestation"}
+              - {label: "Bouton 2 (FR)", name: "btn2_fr", widget: "string", default: "En savoir plus"}
+          - label: "Section À propos"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Titre (FR)", name: "title_fr", widget: "string", default: "Une institution au service de l'agriculture"}
+              - {label: "Titre (AR)", name: "title_ar", widget: "string", required: false}
+              - {label: "Paragraphe 1 (FR)", name: "p1_fr", widget: "text"}
+              - {label: "Paragraphe 1 (AR)", name: "p1_ar", widget: "text", required: false}
+              - {label: "Paragraphe 2 (FR)", name: "p2_fr", widget: "text"}
+              - {label: "Paragraphe 2 (AR)", name: "p2_ar", widget: "text", required: false}
+              - {label: "Paragraphe 3 (FR)", name: "p3_fr", widget: "text"}
+              - {label: "Paragraphe 3 (AR)", name: "p3_ar", widget: "text", required: false}
