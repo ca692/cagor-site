@@ -1,0 +1,54 @@
+{
+  "section_title_fr": "Liens Utiles",
+  "section_title_ar": "الروابط المفيدة",
+  "items": [
+    {
+      "icon": "fas fa-leaf",
+      "title_fr": "Ministère de l'Agriculture",
+      "title_ar": "وزارة الفلاحة",
+      "url": "https://www.agriculture.gov.ma"
+    },
+    {
+      "icon": "fas fa-building",
+      "title_fr": "ONCA",
+      "title_ar": "الأوّنكا",
+      "url": "https://www.onca.gov.ma"
+    },
+    {
+      "icon": "fas fa-shield-alt",
+      "title_fr": "ONSSA",
+      "title_ar": "الأوّنسا",
+      "url": "https://www.onssa.gov.ma"
+    },
+    {
+      "icon": "fas fa-chart-line",
+      "title_fr": "ADA",
+      "title_ar": "الدا",
+      "url": "https://www.ada.gov.ma"
+    },
+    {
+      "icon": "fas fa-flask",
+      "title_fr": "INRA",
+      "title_ar": "الإنرا",
+      "url": "https://www.inra.org.ma"
+    },
+    {
+      "icon": "fas fa-users",
+      "title_fr": "ANOC",
+      "title_ar": "الأنوك",
+      "url": "https://www.anoc.ma"
+    },
+    {
+      "icon": "fas fa-briefcase",
+      "title_fr": "ODCO",
+      "title_ar": "الأودكو",
+      "url": "https://www.odco.gov.ma"
+    },
+    {
+      "icon": "fas fa-cow",
+      "title_fr": "ONICL",
+      "title_ar": "الأونيكل",
+      "url": "https://www.onicl.org.ma"
+    }
+  ]
+}
