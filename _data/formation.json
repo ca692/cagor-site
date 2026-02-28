@@ -1,0 +1,43 @@
+{
+  "section_title_fr": "Formation & Développement des Coopératives",
+  "section_title_ar": "التكوين وتطوير التعاونيات",
+  "chaines": [
+    "Oléiculture",
+    "Agrumiculture",
+    "Maraîchage",
+    "Caroubier",
+    "Apiculture",
+    "Plantes Aromatiques",
+    "Lait et Dérivés",
+    "Viandes Rouges"
+  ],
+  "cards": [
+    {
+      "icon": "fas fa-lightbulb",
+      "title_fr": "Évaluation des Besoins",
+      "title_ar": "تقييم الاحتياجات",
+      "description_fr": "Diagnostic complet des besoins de formation et identification des priorités.",
+      "description_ar": "نقوم بتشخيص شامل لاحتياجات التكوين في التعاونيات والمنظمات.",
+      "link_text_fr": "Répondre au questionnaire",
+      "link_url": "https://forms.google.com"
+    },
+    {
+      "icon": "fas fa-handshake",
+      "title_fr": "Accompagnement Certifié",
+      "title_ar": "المرافقة المعتمدة",
+      "description_fr": "Accompagnement en certificats sanitaires, qualité, gestion et commercialisation.",
+      "description_ar": "نوفر مساعدة شاملة في الشهادات الصحية والجودة والإدارة المالية والتسويق.",
+      "link_text_fr": "Nous contacter",
+      "link_url": "#contact"
+    },
+    {
+      "icon": "fas fa-box",
+      "title_fr": "Fournitures & Emballages",
+      "title_ar": "الإمدادات والتعبئة",
+      "description_fr": "Accès à des fournisseurs de qualité pour les bouteilles, huile et emballages.",
+      "description_ar": "الوصول إلى موردي جودة لزجاجات العسل وزيت الزيتون ومواد التعبئة الأخرى.",
+      "link_text_fr": "Demander informations",
+      "link_url": "#contact"
+    }
+  ]
+}
