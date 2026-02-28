@@ -1,16 +1,7 @@
 {
   "section_title_fr": "Formation & Développement des Coopératives",
   "section_title_ar": "التكوين وتطوير التعاونيات",
-  "chaines": [
-    "Oléiculture",
-    "Agrumiculture",
-    "Maraîchage",
-    "Caroubier",
-    "Apiculture",
-    "Plantes Aromatiques",
-    "Lait et Dérivés",
-    "Viandes Rouges"
-  ],
+  "chaines": ["Oléiculture", "Agrumiculture", "Maraîchage", "Caroubier", "Apiculture", "Plantes Aromatiques", "Lait et Dérivés", "Viandes Rouges"],
   "cards": [
     {
       "icon": "fas fa-lightbulb",

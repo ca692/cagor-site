@@ -5,14 +5,5 @@
   "description1_ar": "تغطي منطقة الشرق مساحة تبلغ حوالي 81000 كم² وتشكل واحدة من أكبر الأحواض الزراعية بالمغرب. بولاياتها الثمانية، تتميز بتنوع المناطق الزراعية من سهول الملوية المسقية إلى المناطق الرعوية في الهضاب العليا.",
   "description2_fr": "Les filières principales: oléiculture, agrumiculture, maraîchage, céréales, élevage, apiculture et plantes aromatiques. La CAGOR accompagne les agriculteurs dans la valorisation de ces productions.",
   "description2_ar": "تشمل السلاسل الرئيسية زراعة الزيتون والحوامض والخضروات والحبوب وتربية الأغنام والأبقار والنحالة والنباتات العطرية والطبية.",
-  "provinces": [
-    "Oujda-Angad",
-    "Nador",
-    "Berkane",
-    "Taourirt",
-    "Jerada",
-    "Figuig",
-    "Driouch",
-    "Guercif"
-  ]
+  "provinces": ["Oujda-Angad", "Nador", "Berkane", "Taourirt", "Jerada", "Figuig", "Driouch", "Guercif"]
 }
