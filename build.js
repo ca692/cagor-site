@@ -233,20 +233,8 @@ ${liens.items.map(item => `
         </div>`;
 html = replaceAll(html, '{{LIENS_CONTENT}}', liensHTML);
 
-// === NEWS IMAGE MAPPING ===
-const newsImages = {
-    'fas fa-star': 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=300&fit=crop',
-    'fas fa-leaf': 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=300&fit=crop',
-    'fas fa-calendar': 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&h=300&fit=crop',
-    'fas fa-handshake': 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=300&fit=crop',
-    'fas fa-seedling': 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=300&fit=crop',
-    'fas fa-trophy': 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=300&fit=crop',
-    'fas fa-bullhorn': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=300&fit=crop',
-    'fas fa-users': 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=300&fit=crop',
-    'fas fa-graduation-cap': 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&h=300&fit=crop',
-    'fas fa-chart-line': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop'
-};
-const defaultNewsImage = 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=300&fit=crop';
+// === NEWS DEFAULT IMAGE (oliviers - agriculture Oriental) ===
+const defaultNewsImage = 'https://images.unsplash.com/photo-1445282768818-728615cc910a?w=600&h=300&fit=crop';
 
 // === GENERATE NEWS CARDS ===
 const newsHTML = news.slice(0, 6).map(item => {
