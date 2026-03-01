@@ -5,9 +5,9 @@
     {
       "icon": "fas fa-file-certificate",
       "title_fr": "Attestations Agricoles",
-      "title_ar": "الشهادات الزراعية",
+      "title_ar": "شواهد المهنة",
       "description_fr": "Demandez vos attestations professionnelles en ligne. Service rapide et sécurisé avec numérotation unique et vérification instantanée du statut agricole.",
-      "description_ar": "اطلب شهاداتك المهنية عبر الإنترنت. خدمة سريعة وآمنة مع ترقيم فريد والتحقق الفوري من الحالة الزراعية.",
+      "description_ar": "اطلب شواهد المهنة عبر الإنترنت. خدمة سريعة وآمنة مع ترقيم فريد والتحقق الفوري من الوضعية الفلاحية.",
       "link": "#attestation-section"
     },
     {
@@ -15,7 +15,7 @@
       "title_fr": "Formation & Renforcement",
       "title_ar": "التكوين والتعزيز",
       "description_fr": "Programmes de formation pour les coopératives et organisations professionnelles. Évaluation des besoins et accompagnement complet dans les chaînes de production agricole.",
-      "description_ar": "برامج تدريبية للتعاونيات والمنظمات المهنية. تقييم الاحتياجات والمساعدة الكاملة في سلاسل الإنتاج الزراعي.",
+      "description_ar": "برامج تدريبية للتعاونيات والمنظمات المهنية. تقييم الاحتياجات والمساعدة الكاملة في سلاسل الإنتاج الفلاحي.",
       "link": "#formation"
     },
     {
@@ -23,7 +23,7 @@
       "title_fr": "Base de Données Organisations",
       "title_ar": "قاعدة بيانات المنظمات",
       "description_fr": "Inscription et suivi des coopératives, associations et organisations professionnelles de la région. Gestion centralisée et transparente.",
-      "description_ar": "تسجيل ومتابعة التعاونيات والجمعيات والمنظمات المهنية بالمنطقة. إدارة مركزية وشفافة.",
+      "description_ar": "تسجيل ومتابعة التعاونيات والجمعيات والمنظمات المهنية بالجهة. إدارة مركزية وشفافة.",
       "link": "#formation"
     }
   ]

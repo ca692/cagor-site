@@ -1,15 +1,15 @@
 {
   "section_title_fr": "Vulgarisation & Conseil Agricole",
-  "section_title_ar": "الإرشاد والاستشارة الزراعية",
+  "section_title_ar": "الإرشاد والاستشارة الفلاحية",
   "intro_fr": "La CAGOR contribue activement à la vulgarisation des informations scientifiques, techniques et économiques auprès des agriculteurs et éleveurs de la région de l'Oriental.",
-  "intro_ar": "تساهم كاغور بشكل فعال في نشر المعلومات العلمية والتقنية والاقتصادية لفائدة الفلاحين والمربين بمنطقة الشرق.",
+  "intro_ar": "تساهم الغرفة بشكل فعال في نشر المعلومات العلمية والتقنية والاقتصادية لفائدة الفلاحين والمربين بجهة الشرق.",
   "cards": [
     {
       "icon": "fas fa-book-open",
       "title_fr": "Information Technique",
       "title_ar": "المعلومات التقنية",
       "description_fr": "Diffusion des informations scientifiques et techniques relatives aux pratiques culturales, à l'élevage, à l'irrigation, et aux nouvelles technologies agricoles.",
-      "description_ar": "نشر المعلومات العلمية والتقنية المتعلقة بالممارسات الزراعية وتربية الماشية والري والتقنيات الزراعية الجديدة المناسبة للمنطقة."
+      "description_ar": "نشر المعلومات العلمية والتقنية المتعلقة بالممارسات الفلاحية وتربية الماشية والري والتقنيات الفلاحية الجديدة المناسبة للمنطقة."
     },
     {
       "icon": "fas fa-chalkboard-teacher",
@@ -29,9 +29,9 @@
   "topics": [
     {
       "title_fr": "Techniques Culturales",
-      "title_ar": "التقنيات الزراعية",
+      "title_ar": "التقنيات الفلاحية",
       "description_fr": "Méthodes modernes de culture, rotation, fertilisation et protection phytosanitaire",
-      "description_ar": "أساليب الزراعة الحديثة والتناوب والتسميد والحماية النباتية"
+      "description_ar": "أساليب الفلاحة الحديثة والتناوب والتسميد والحماية النباتية"
     },
     {
       "title_fr": "Élevage & Santé Animale",

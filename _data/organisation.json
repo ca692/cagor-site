@@ -2,7 +2,7 @@
   "section_title_fr": "Organisation & Gouvernance",
   "section_title_ar": "التنظيم والحكامة",
   "intro_fr": "La CAGOR dispose d'une structure organisationnelle complète composée de 4 services spécialisés et 3 annexes provinciales.",
-  "intro_ar": "تتوفر كاغور على هيكل تنظيمي متكامل يتكون من 4 مصالح متخصصة و3 ملحقات إقليمية لتقديم خدمة القرب.",
+  "intro_ar": "تتوفر الغرفة على هيكل تنظيمي متكامل يتكون من 4 مصالح متخصصة و3 ملحقات إقليمية لتقديم خدمة القرب.",
   "services": [
     {
       "icon": "fas fa-calculator",
@@ -23,7 +23,7 @@
       "title_fr": "Service Développement Agricole & Territorial (SDAT)",
       "title_ar": "مصلحة التنمية الفلاحية والمجالية",
       "description_fr": "Encadrement des agriculteurs, vulgarisation, formation, appui aux coopératives et filières agricoles.",
-      "description_ar": "تأطير الفلاحين والإرشاد والتكوين ودعم التعاونيات وتطوير السلاسل الزراعية."
+      "description_ar": "تأطير الفلاحين والإرشاد والتكوين ودعم التعاونيات وتطوير السلاسل الفلاحية."
     },
     {
       "icon": "fas fa-clipboard-check",
