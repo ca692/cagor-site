@@ -1086,6 +1086,31 @@
             color: var(--gray);
             font-size: 0.9rem;
             line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-card p.expanded {
+            -webkit-line-clamp: unset;
+            display: block;
+        }
+
+        .news-read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .news-read-more:hover {
+            text-decoration: underline;
         }
 
         /* ===== LIENS UTILES SECTION ===== */
@@ -2322,6 +2347,17 @@
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleNewsText(btn) {
+            const p = btn.previousElementSibling;
+            const isExpanded = p.classList.toggle('expanded');
+            const lang = document.documentElement.lang || 'fr';
+            if (isExpanded) {
+                btn.textContent = lang === 'ar' ? '▴ أقل' : '▴ Réduire';
+            } else {
+                btn.textContent = lang === 'ar' ? 'اقرأ المزيد ▸' : 'Lire plus ▸';
+            }
         }
     </script>
 </body>
