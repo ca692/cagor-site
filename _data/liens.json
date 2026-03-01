@@ -45,10 +45,16 @@
       "url": "https://www.odco.gov.ma"
     },
     {
-      "icon": "fas fa-cow",
+      "image": "images/onicl-logo.svg",
       "title_fr": "ONICL",
       "title_ar": "الأونيكل",
       "url": "https://www.onicl.org.ma"
+    },
+    {
+      "icon": "fas fa-clipboard-list",
+      "title_fr": "Besoins en Formation et Appui",
+      "title_ar": "احتياجات التكوين والدعم",
+      "url": "https://forms.office.com/r/Na9fNwQr5Z"
     }
   ]
 }

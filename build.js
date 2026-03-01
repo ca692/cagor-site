@@ -224,7 +224,9 @@ const liensHTML = `
             <div class="liens-grid">
 ${liens.items.map(item => `
                 <div class="lien-card">
-                    <i class="${item.icon}"></i>
+                    ${item.image
+                        ? `<img src="${item.image}" alt="${item.title_fr}" class="lien-logo">`
+                        : `<i class="${item.icon}"></i>`}
                     <h3 data-fr="${item.title_fr}" data-ar="${item.title_ar || ''}">${item.title_fr}</h3>
                     <a href="${item.url}" target="_blank">Visiter</a>
                 </div>`).join('\n')}

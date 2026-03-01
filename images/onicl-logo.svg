@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="#1a5c3a" stroke="#D4A017" stroke-width="2"/>
+
+  <!-- Wheat ear left -->
+  <g transform="translate(35, 25) rotate(-15, 25, 45)">
+    <!-- Stem -->
+    <line x1="12" y1="15" x2="12" y2="70" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
+    <!-- Grains left side -->
+    <ellipse cx="6" cy="20" rx="5" ry="8" fill="#D4A017" transform="rotate(-20, 6, 20)"/>
+    <ellipse cx="5" cy="33" rx="5" ry="8" fill="#D4A017" transform="rotate(-15, 5, 33)"/>
+    <ellipse cx="6" cy="46" rx="5" ry="7" fill="#D4A017" transform="rotate(-10, 6, 46)"/>
+    <!-- Grains right side -->
+    <ellipse cx="18" cy="20" rx="5" ry="8" fill="#D4A017" transform="rotate(20, 18, 20)"/>
+    <ellipse cx="19" cy="33" rx="5" ry="8" fill="#D4A017" transform="rotate(15, 19, 33)"/>
+    <ellipse cx="18" cy="46" rx="5" ry="7" fill="#D4A017" transform="rotate(10, 18, 46)"/>
+    <!-- Top grain -->
+    <ellipse cx="12" cy="12" rx="4" ry="7" fill="#D4A017"/>
+  </g>
+
+  <!-- Wheat ear right -->
+  <g transform="translate(55, 25) rotate(15, 25, 45)">
+    <!-- Stem -->
+    <line x1="12" y1="15" x2="12" y2="70" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
+    <!-- Grains left side -->
+    <ellipse cx="6" cy="20" rx="5" ry="8" fill="#D4A017" transform="rotate(-20, 6, 20)"/>
+    <ellipse cx="5" cy="33" rx="5" ry="8" fill="#D4A017" transform="rotate(-15, 5, 33)"/>
+    <ellipse cx="6" cy="46" rx="5" ry="7" fill="#D4A017" transform="rotate(-10, 6, 46)"/>
+    <!-- Grains right side -->
+    <ellipse cx="18" cy="20" rx="5" ry="8" fill="#D4A017" transform="rotate(20, 18, 20)"/>
+    <ellipse cx="19" cy="33" rx="5" ry="8" fill="#D4A017" transform="rotate(15, 19, 33)"/>
+    <ellipse cx="18" cy="46" rx="5" ry="7" fill="#D4A017" transform="rotate(10, 18, 46)"/>
+    <!-- Top grain -->
+    <ellipse cx="12" cy="12" rx="4" ry="7" fill="#D4A017"/>
+  </g>
+
+  <!-- ONICL text -->
+  <text x="60" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="white">ONICL</text>
+</svg>
