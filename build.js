@@ -31,7 +31,7 @@ const news = newsFiles.map(file => {
         if (match) data[match[1]] = match[2].replace(/^"|"$/g, '');
     });
     return data;
-}).filter(Boolean);
+}).filter(Boolean).reverse();
 
 // Read template
 let html = fs.readFileSync('templates/index.template.html', 'utf8');
