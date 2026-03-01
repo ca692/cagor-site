@@ -1,36 +1,36 @@
 {
   "section_title_fr": "Plan Stratégique 2024-2027",
   "section_title_ar": "المخطط الاستراتيجي 2024-2027",
-  "intro_fr": "La CAGOR a élaboré un plan stratégique basé sur l'analyse de 845 interventions cataloguées entre 2015 et 2019, structuré autour de 4 axes prioritaires.",
-  "intro_ar": "وضعت الغرفة مخططًا استراتيجيًا مبنيًا على تحليل 845 تدخلًا مُفهرسًا بين 2015 و2019، مهيكلًا حول 4 محاور ذات أولوية للتنمية الفلاحية بالجهة.",
+  "intro_fr": "La CAGOR a élaboré un plan stratégique issu d'un diagnostic approfondi, structuré autour de 4 axes stratégiques et 40 opérations prioritaires.",
+  "intro_ar": "وضعت الغرفة مخططًا استراتيجيًا مبنيًا على تشخيص معمّق، مهيكلًا حول 4 محاور استراتيجية و40 عملية ذات أولوية.",
   "axes": [
     {
-      "icon": "fas fa-tint",
-      "title_fr": "Ressources Hydriques & Irrigation",
-      "title_ar": "الموارد المائية والري",
-      "description_fr": "Suivi des niveaux des barrages, gestion durable de l'eau, promotion de l'irrigation localisée et adaptation aux changements climatiques.",
-      "description_ar": "متابعة مستويات السدود والإدارة المستدامة للمياه وتعزيز الري الموضعي والتكيف مع التغيرات المناخية."
+      "icon": "fas fa-landmark",
+      "title_fr": "Renforcement du Rôle Représentatif & Gouvernance",
+      "title_ar": "تعزيز الدور التمثيلي والحكامة",
+      "description_fr": "Gouvernance des instances (AG, Bureau, Commissions), formation des membres, suivi des recommandations et doléances, manuel de procédures, plaidoyer pour les agriculteurs, audit interne et externe.",
+      "description_ar": "حكامة الهيئات (الجمع العام، المكتب، اللجان)، تكوين الأعضاء، تتبع التوصيات والشكايات، دليل المساطر، الترافع لفائدة الفلاحين، التدقيق الداخلي والخارجي."
     },
     {
-      "icon": "fas fa-horse",
-      "title_fr": "Élevage & Sécurité Sanitaire",
-      "title_ar": "تربية الماشية والسلامة الصحية",
-      "description_fr": "Développement des filières d'élevage, protection sanitaire des troupeaux, amélioration génétique et commercialisation.",
-      "description_ar": "تطوير سلاسل تربية الماشية والحماية الصحية للقطعان والتحسين الجيني ودعم تسويق اللحوم الحمراء والحليب."
-    },
-    {
-      "icon": "fas fa-seedling",
-      "title_fr": "Production Végétale & Environnement",
-      "title_ar": "الإنتاج النباتي والبيئة",
-      "description_fr": "Soutien à la production végétale, lutte contre la désertification, protection des forêts et valorisation des produits du terroir.",
-      "description_ar": "دعم الإنتاج النباتي ومكافحة التصحر وحماية الغابات وتثمين منتجات المنطقة."
+      "icon": "fas fa-comments",
+      "title_fr": "Renforcement du Rôle Consultatif",
+      "title_ar": "تعزيز الدور الاستشاري",
+      "description_fr": "Veille et tableaux de bord du secteur, services aux organisations professionnelles, accompagnement des OP nouvelle génération, journées d'étude, suivi Génération Green, partenariats recherche et coopération internationale.",
+      "description_ar": "الرصد ولوحات قيادة القطاع، خدمات المنظمات المهنية، مواكبة التنظيمات المهنية الجديدة، أيام دراسية، تتبع الجيل الأخضر، شراكات البحث والتعاون الدولي."
     },
     {
       "icon": "fas fa-laptop-code",
-      "title_fr": "Transformation Numérique & Modernisation",
-      "title_ar": "التحول الرقمي والتحديث",
-      "description_fr": "Adoption du Cloud Computing, plateforme numérique de services, veille stratégique et dématérialisation des procédures.",
-      "description_ar": "اعتماد الحوسبة السحابية ومنصة رقمية للخدمات والرصد الاستراتيجي ورقمنة الإجراءات."
+      "title_fr": "Stratégie Digitale",
+      "title_ar": "الاستراتيجية الرقمية",
+      "description_fr": "Production de contenu numérique (capsules, films pédagogiques, météo agricole), développement du site web et réseaux sociaux, bases de données des professionnels, Cloud Computing.",
+      "description_ar": "إنتاج المحتوى الرقمي (كبسولات، أفلام تربوية، أرصاد فلاحية)، تطوير الموقع والشبكات الاجتماعية، قواعد بيانات المهنيين، الحوسبة السحابية."
+    },
+    {
+      "icon": "fas fa-tractor",
+      "title_fr": "Contribution au Développement Agricole",
+      "title_ar": "المساهمة في التنمية الفلاحية",
+      "description_fr": "Formation et conseil agricole, distribution de matériel et équipements de valorisation, voyages d'études (SIAM), foires régionales et marketplace, adaptation climatique et stations météo.",
+      "description_ar": "التكوين والإرشاد الفلاحي، توزيع المعدات وتجهيزات التثمين، رحلات دراسية (المعرض الدولي)، معارض جهوية ومنصة تسويق، التكيف المناخي ومحطات أرصاد."
     }
   ]
 }
