@@ -847,6 +847,76 @@
             opacity: 0.8;
         }
 
+        .file-upload-status {
+            margin-top: 12px;
+            display: none;
+        }
+
+        .file-upload-status.active {
+            display: block;
+        }
+
+        .file-name-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(10, 61, 46, 0.08);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .file-name-display i {
+            color: var(--accent);
+        }
+
+        .file-remove-btn {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .file-remove-btn:hover {
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        .upload-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .upload-progress-bar.active {
+            display: block;
+        }
+
+        .upload-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .upload-status-text {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 6px;
+            text-align: center;
+        }
+
         .staff-login-card {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--white);
@@ -1720,6 +1790,13 @@
                             <p data-fr="Cliquez pour sélectionner ou glissez-déposez votre fichier" data-ar="انقر للتحديد أو اسحب وأفلت ملفك">Cliquez pour sélectionner ou glissez-déposez votre fichier</p>
                             <p class="hint" data-fr="Format supporté : PDF, JPG, PNG" data-ar="الصيغ المدعومة: PDF، JPG، PNG">Format supporté : PDF, JPG, PNG</p>
                             <input type="file" id="file-input" name="file" accept=".pdf,.jpg,.jpeg,.png">
+                            <div class="file-upload-status" id="file-upload-status">
+                                <div class="file-name-display">
+                                    <i class="fas fa-paperclip"></i>
+                                    <span id="file-name-text"></span>
+                                    <button type="button" class="file-remove-btn" id="file-remove-btn" title="Supprimer"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1777,16 +1854,16 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h3 data-fr="Adresse" data-ar="العنوان">Adresse</h3>
-                    <p data-fr="Boulevard Derfoufi<br>Oujda 60000<br>Maroc" data-ar="شارع درفوفي<br>وجدة 60000<br>المغرب" data-html="true">{{contact.address_fr}}</p>
+                    <p data-fr="Boulevard Moustapha Laoujidi<br>Oujda" data-ar="شارع مصطفى لوجيدي<br>وجدة" data-html="true">{{contact.address_fr}}</p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
                     </div>
-                    <h3 data-fr="Téléphone" data-ar="الهاتف">Téléphone</h3>
+                    <h3 data-fr="Téléphone / Fax" data-ar="الهاتف / الفاكس">Téléphone / Fax</h3>
                     <p>
-                        <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a><br>
-                        <a href="tel:{{contact.phone2}}">{{contact.phone2}}</a>
+                        <i class="fas fa-phone-alt" style="font-size:0.8em;margin-right:5px;color:var(--accent);"></i> <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a><br>
+                        <i class="fas fa-fax" style="font-size:0.8em;margin-right:5px;color:var(--accent);"></i> <span data-fr="Fax:" data-ar="فاكس:">Fax:</span> {{contact.fax}}
                     </p>
                 </div>
                 <div class="contact-card">
@@ -1795,8 +1872,7 @@
                     </div>
                     <h3 data-fr="Email" data-ar="البريد الإلكتروني">Email</h3>
                     <p>
-                        <a href="mailto:{{contact.email1}}">{{contact.email1}}</a><br>
-                        <a href="mailto:{{contact.email2}}">{{contact.email2}}</a>
+                        <a href="mailto:{{contact.email1}}">{{contact.email1}}</a>
                     </p>
                 </div>
                 <div class="contact-card">
@@ -1804,7 +1880,7 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3 data-fr="Horaires" data-ar="الساعات">Horaires</h3>
-                    <p data-fr="Lun-Jeu: 8h-16h<br>Vendredi: 8h-15h30<br>Samedi-Dimanche: Fermé" data-ar="الإثنين-الخميس: 8-16<br>الجمعة: 8-15:30<br>السبت-الأحد: مغلق" data-html="true">{{contact.hours_fr}}</p>
+                    <p data-fr="Lun-Jeu: 8h30-16h30<br>Vendredi: 8h30-12h / 14h-16h30<br>Samedi-Dimanche: Fermé" data-ar="الإثنين-الخميس: 8:30-16:30<br>الجمعة: 8:30-12 / 14-16:30<br>السبت-الأحد: مغلق" data-html="true">{{contact.hours_fr}}</p>
                 </div>
             </div>
             <div class="map-container">
@@ -1950,8 +2026,49 @@
         function setupFileUpload() {
             const fileUpload = document.querySelector('.file-upload');
             const fileInput = document.getElementById('file-input');
+            const statusDiv = document.getElementById('file-upload-status');
+            const fileNameText = document.getElementById('file-name-text');
+            const removeBtn = document.getElementById('file-remove-btn');
+            const uploadIcon = document.querySelector('.file-upload-icon');
+            const uploadText = fileUpload.querySelector('p');
 
-            fileUpload.addEventListener('click', () => fileInput.click());
+            function showFileSelected(file) {
+                const sizeMB = (file.size / 1024 / 1024).toFixed(2);
+                fileNameText.textContent = file.name + ' (' + sizeMB + ' MB)';
+                statusDiv.classList.add('active');
+                uploadIcon.innerHTML = '<i class="fas fa-check-circle" style="color: var(--primary);"></i>';
+                uploadText.textContent = currentLang === 'fr' ? 'Fichier sélectionné' : 'تم اختيار الملف';
+                fileUpload.style.borderColor = 'var(--primary)';
+                fileUpload.style.background = 'linear-gradient(135deg, rgba(10, 61, 46, 0.08) 0%, rgba(212, 160, 23, 0.08) 100%)';
+            }
+
+            function clearFile() {
+                fileInput.value = '';
+                statusDiv.classList.remove('active');
+                uploadIcon.innerHTML = '<i class="fas fa-cloud-upload-alt"></i>';
+                uploadText.setAttribute('data-fr', 'Cliquez pour sélectionner ou glissez-déposez votre fichier');
+                uploadText.textContent = currentLang === 'fr'
+                    ? 'Cliquez pour sélectionner ou glissez-déposez votre fichier'
+                    : 'انقر للتحديد أو اسحب وأفلت ملفك';
+                fileUpload.style.borderColor = '';
+                fileUpload.style.background = '';
+            }
+
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length > 0) {
+                    showFileSelected(fileInput.files[0]);
+                }
+            });
+
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                clearFile();
+            });
+
+            fileUpload.addEventListener('click', (e) => {
+                if (e.target.closest('.file-remove-btn')) return;
+                fileInput.click();
+            });
 
             fileUpload.addEventListener('dragover', (e) => {
                 e.preventDefault();
@@ -1959,14 +2076,16 @@
             });
 
             fileUpload.addEventListener('dragleave', () => {
-                fileUpload.style.background = 'linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(10, 61, 46, 0.05) 100%)';
+                if (!fileInput.files.length) {
+                    fileUpload.style.background = 'linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(10, 61, 46, 0.05) 100%)';
+                }
             });
 
             fileUpload.addEventListener('drop', (e) => {
                 e.preventDefault();
-                fileUpload.style.background = 'linear-gradient(135deg, rgba(212, 160, 23, 0.05) 0%, rgba(10, 61, 46, 0.05) 100%)';
                 if (e.dataTransfer.files.length) {
                     fileInput.files = e.dataTransfer.files;
+                    showFileSelected(e.dataTransfer.files[0]);
                 }
             });
         }
@@ -2011,9 +2130,28 @@
                     return;
                 }
 
+                // Get or create progress elements
+                let progressContainer = document.getElementById('submit-progress');
+                if (!progressContainer) {
+                    progressContainer = document.createElement('div');
+                    progressContainer.id = 'submit-progress';
+                    progressContainer.style.cssText = 'margin-top:15px;text-align:center;';
+                    progressContainer.innerHTML = '<div class="upload-progress-bar active"><div class="upload-progress-fill" id="progress-fill"></div></div><div class="upload-status-text" id="progress-text"></div>';
+                    form.querySelector('button[type="submit"]').insertAdjacentElement('afterend', progressContainer);
+                }
+                progressContainer.style.display = 'block';
+                const progressFill = document.getElementById('progress-fill');
+                const progressText = document.getElementById('progress-text');
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.6';
+
                 try {
                     const formData = new FormData(form);
                     const fileInput = document.getElementById('file-input');
+
+                    progressFill.style.width = '10%';
+                    progressText.textContent = currentLang === 'fr' ? 'Préparation des données...' : 'تحضير البيانات...';
 
                     let fileBase64 = '';
                     if (fileInput.files.length > 0) {
@@ -2022,9 +2160,23 @@
                             alert(currentLang === 'fr'
                                 ? 'Le fichier dépasse 10 MB'
                                 : 'الملف يتجاوز 10 ميجابايت');
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = '1';
+                            progressContainer.style.display = 'none';
                             return;
                         }
+                        progressFill.style.width = '25%';
+                        progressText.textContent = currentLang === 'fr'
+                            ? 'Chargement du fichier "' + file.name + '"...'
+                            : '...جاري تحميل الملف "' + file.name + '"';
                         fileBase64 = await fichierEnBase64(file);
+                        progressFill.style.width = '50%';
+                        progressText.textContent = currentLang === 'fr'
+                            ? 'Fichier chargé ✓ Envoi en cours...'
+                            : 'تم تحميل الملف ✓ جاري الإرسال...';
+                    } else {
+                        progressFill.style.width = '40%';
+                        progressText.textContent = currentLang === 'fr' ? 'Envoi en cours...' : 'جاري الإرسال...';
                     }
 
                     const data = {
@@ -2044,6 +2196,8 @@
                         timestamp: new Date().toISOString()
                     };
 
+                    progressFill.style.width = '70%';
+
                     const response = await fetch(APPS_SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
@@ -2053,16 +2207,57 @@
                         body: JSON.stringify(data)
                     });
 
-                    alert(currentLang === 'fr'
-                        ? 'Demande soumise avec succès. Vérifiez votre email pour le suivi.'
-                        : 'تم تقديم الطلب بنجاح. تحقق من بريدك الإلكتروني للمتابعة.');
+                    progressFill.style.width = '100%';
+                    progressText.innerHTML = currentLang === 'fr'
+                        ? '<i class="fas fa-check-circle" style="color:var(--primary);margin-right:5px;"></i> Demande envoyée avec succès !'
+                        : '<i class="fas fa-check-circle" style="color:var(--primary);margin-left:5px;"></i> تم إرسال الطلب بنجاح!';
+                    progressText.style.color = 'var(--primary)';
+                    progressText.style.fontWeight = '600';
+
+                    setTimeout(() => {
+                        alert(currentLang === 'fr'
+                            ? 'Demande soumise avec succès. Vérifiez votre email pour le suivi.'
+                            : 'تم تقديم الطلب بنجاح. تحقق من بريدك الإلكتروني للمتابعة.');
+                    }, 500);
 
                     form.reset();
+                    // Reset file upload UI
+                    const statusDiv = document.getElementById('file-upload-status');
+                    statusDiv.classList.remove('active');
+                    document.querySelector('.file-upload-icon').innerHTML = '<i class="fas fa-cloud-upload-alt"></i>';
+                    const uploadText = document.querySelector('.file-upload p');
+                    uploadText.textContent = currentLang === 'fr'
+                        ? 'Cliquez pour sélectionner ou glissez-déposez votre fichier'
+                        : 'انقر للتحديد أو اسحب وأفلت ملفك';
+                    document.querySelector('.file-upload').style.borderColor = '';
+                    document.querySelector('.file-upload').style.background = '';
+
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                        progressFill.style.width = '0%';
+                        progressText.style.color = '';
+                        progressText.style.fontWeight = '';
+                    }, 3000);
                 } catch (error) {
                     console.error('Error:', error);
+                    progressFill.style.width = '100%';
+                    progressFill.style.background = '#dc3545';
+                    progressText.innerHTML = currentLang === 'fr'
+                        ? '<i class="fas fa-exclamation-circle" style="color:#dc3545;margin-right:5px;"></i> Erreur lors de l\'envoi'
+                        : '<i class="fas fa-exclamation-circle" style="color:#dc3545;margin-left:5px;"></i> خطأ أثناء الإرسال';
+                    progressText.style.color = '#dc3545';
                     alert(currentLang === 'fr'
-                        ? 'Erreur lors de la soumission'
-                        : 'خطأ أثناء التقديم');
+                        ? 'Erreur lors de la soumission. Veuillez réessayer.'
+                        : 'خطأ أثناء التقديم. يرجى المحاولة مرة أخرى.');
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                        progressFill.style.width = '0%';
+                        progressFill.style.background = '';
+                        progressText.style.color = '';
+                    }, 3000);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
                 }
             });
 
