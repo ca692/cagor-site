@@ -1,0 +1,16 @@
+{
+  "section_title_fr": "Vidéothèque",
+  "section_title_ar": "مكتبة الفيديو",
+  "intro_fr": "Retrouvez nos séries de vidéos de sensibilisation et de formation agricole.",
+  "intro_ar": "اكتشفوا سلسلات الفيديو التوعوية والتكوينية في المجال الفلاحي.",
+  "playlists": [
+    {
+      "id": "PLgDoKQebrOA5a3kg-EQl3z5-fA50jbFS5",
+      "title_fr": "Irrigation Raisonnée",
+      "title_ar": "ترشيد مياه الري",
+      "description_fr": "Sensibilisation à la rationalisation de l'eau d'irrigation et l'importance de l'irrigation déficitaire.",
+      "description_ar": "توعية بترشيد مياه الري وأهمية الري التكميلي والعجزي.",
+      "icon": "fas fa-tint"
+    }
+  ]
+}

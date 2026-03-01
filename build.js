@@ -17,6 +17,7 @@ const vulgarisation = JSON.parse(fs.readFileSync('_data/vulgarisation.json', 'ut
 const formation = JSON.parse(fs.readFileSync('_data/formation.json', 'utf8'));
 const region = JSON.parse(fs.readFileSync('_data/region.json', 'utf8'));
 const liens = JSON.parse(fs.readFileSync('_data/liens.json', 'utf8'));
+const videos = JSON.parse(fs.readFileSync('_data/videos.json', 'utf8'));
 
 // Read news files
 const newsDir = '_news';
@@ -253,6 +254,26 @@ const newsHTML = news.slice(0, 6).map(item => {
                 </div>`;
 }).join('\n');
 html = html.replace('{{NEWS_CARDS}}', newsHTML);
+
+// === VIDEOTHEQUE PLACEHOLDERS ===
+html = replaceAll(html, '{{videos.title_fr}}', videos.section_title_fr);
+html = replaceAll(html, '{{videos.title_ar}}', videos.section_title_ar || '');
+html = replaceAll(html, '{{videos.intro_fr}}', videos.intro_fr);
+html = replaceAll(html, '{{videos.intro_ar}}', videos.intro_ar || '');
+
+// === GENERATE PLAYLIST CARDS ===
+const playlistsHTML = videos.playlists.map(pl => `
+                <div class="playlist-card">
+                    <div class="playlist-embed">
+                        <iframe src="https://www.youtube.com/embed/videoseries?list=${pl.id}" allowfullscreen></iframe>
+                    </div>
+                    <div class="playlist-info">
+                        <h3 data-fr="${pl.title_fr}" data-ar="${pl.title_ar || pl.title_fr}"><i class="${pl.icon}"></i> ${pl.title_fr}</h3>
+                        <p data-fr="${pl.description_fr}" data-ar="${pl.description_ar || pl.description_fr}">${pl.description_fr}</p>
+                        <a href="https://www.youtube.com/playlist?list=${pl.id}" target="_blank" class="playlist-btn" data-fr="Voir la playlist complète ▸" data-ar="شاهد القائمة الكاملة ▸"><i class="fab fa-youtube"></i> Voir la playlist complète ▸</a>
+                    </div>
+                </div>`).join('\n');
+html = html.replace('{{PLAYLISTS_CARDS}}', playlistsHTML);
 
 // === WRITE OUTPUT ===
 const outputDir = '_site';
